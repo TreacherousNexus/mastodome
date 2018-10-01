@@ -295,7 +295,7 @@ class MainWindow(object):
     def check_login_status(self, dialog):
         problem = dialog.ui.get_latest_exception()
         if problem is not None:
-            error_msg = QtWidgets.QErrorMessagee()
+            error_msg = QtWidgets.QErrorMessage()
             error_msg.showMessage(str(problem))
             error_msg.exec_()
             lingo = Translations()
