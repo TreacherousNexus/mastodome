@@ -17,9 +17,9 @@ I'm convinced that in time, most people will see that Twitter doesn't have their
 For some great advice on how to get started and register, check out [this noobie guide](https://theoutline.com/post/2689/mastodon-makes-the-internet-feel-like-home-again) from [@srol@mellified.men](https://mellified.men/@srol).
 
 ## Getting started with Mastodome
-To pull down the latest stable code, simply pull from github using one of the following commands:
+To pull down the latest stable code, simply pull from bitbucket using the following commands:
 ```
-svn co https://code.bobstechsite.com/svn/mastodome/trunk/ mastodome
+git clone https://bobstechsite@bitbucket.org/bobstechsite/mastodome.git
 ```
 You should now open the `DEVNOTES` file and install all the dependencies this package requires using your system's package manager and `pip`. 
 Once you've done so, navigate to the cloned directory and launch Mastodome with:
