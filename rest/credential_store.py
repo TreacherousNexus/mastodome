@@ -74,7 +74,7 @@ class CredentialStore:
                 if (username, domain) == (csecret_parts[1], csecret_parts[2]):
                     if output is None:
                         output = dict()
-                    if domain in output.keys():
+                    if domain in list(output.keys()):
                         existing = output[domain]
                         output[domain] = existing.append(username)
                     else:

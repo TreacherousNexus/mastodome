@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-from config import Config
+from .config import Config
 import os
 
 

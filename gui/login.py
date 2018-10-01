@@ -97,7 +97,7 @@ class ui_login_dialog(object):
         self.mServerLineEdit.setFocus(True)
 
     def credentials_fetch(self):
-        print api.get_existing_users_and_domains()  # Will be used to populate drop-down lists to save typing
+        print(api.get_existing_users_and_domains())  # Will be used to populate drop-down lists to save typing
 
     def complete_login(self):
         server_url = str(self.mServerLineEdit.text())
@@ -120,7 +120,7 @@ class ui_login_dialog(object):
             if not login_attempt.is_client_registered():
                 login_attempt.client_register()
         except MastodonError as m:
-            print type(m)
+            print(type(m))
             self.latest_exception = MastodonError(m)
             raise
 
@@ -129,14 +129,14 @@ class ui_login_dialog(object):
             if not login_attempt.is_user_registered():
                 login_attempt.user_register(user_pwd)
         except MastodonError as m:
-            print type(m)
+            print(type(m))
             self.latest_exception = MastodonError(m)
             raise
 
         try:
             self.create_session(server_url, user_name, user_pwd)
         except MastodonError as m:
-            print type(m)
+            print(type(m))
             self.latest_exception = MastodonError(m)
             raise
 

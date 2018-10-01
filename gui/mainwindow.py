@@ -394,7 +394,7 @@ class MainWindow(object):
             model = QtGui.QStandardItemModel(self.listOfNotifications)
             stream_to_load = toots.Toots(toot_stream)
             stream_to_load.process()
-            for timestamp, toot in stream_to_load.get_toots().items():
+            for timestamp, toot in list(stream_to_load.get_toots().items()):
                 item = QtGui.QStandardItem()
                 icon = QtGui.QIcon()
                 image = QtGui.QImage()
@@ -423,7 +423,7 @@ class MainWindow(object):
             model = QtGui.QStandardItemModel(self.listOfNotifications)
 
             notifications = self.current_session.get_notifications()
-            for timestamp, notification in notifications.items():
+            for timestamp, notification in list(notifications.items()):
                 item = QtGui.QStandardItem()
                 if notification.n_type == "follow":
                     item.setText(notification.get_display_name() + " " + lingo.load("notify_follow") + ".")
