@@ -33,7 +33,7 @@ In future releases I will make the process of installing and running Mastodome m
 ## New in this release (0.2)
 * TODO : ADD FEATURES
 * Now provided under BSD-style license (see `LICENSE.TXT`)
-* Runs on Python3 instead of Python2
+* Upgraded to use Python 3 and Qt 5
 * Overhauled credential management
     * Fetches existing login tokens from the local keyring and supports refresh tokens
     * Outputs error message during login via a dialog instead of the debugger
