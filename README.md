@@ -3,6 +3,7 @@ A new Qt-based Mastodon client written in Python.
 
 ## Intro
 Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better. More specifically:
+
 * Ad-supported messages and bots don't clutter up your news feed
 * There's no "engagement algorithms" showing you messages out of order and out of context deliberately to make you angry
 * Moderation is more effective because there's more people doing it in the first place
