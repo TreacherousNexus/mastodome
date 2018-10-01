@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 from config.translations import Translations
 from config.icons_pics import Icons, Pics
 from config import config
@@ -13,12 +13,12 @@ except AttributeError:
         return s
 
 try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
+    _encoding = QtWidgets.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 
 class ui_dialog_about(object):
     def setupUi(self, DialogAbout):
@@ -26,17 +26,17 @@ class ui_dialog_about(object):
         DialogAbout.resize(400, 446)
         icons = Icons()
         DialogAbout.setWindowIcon(QtGui.QIcon(icons.actionAboutIcon))
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(DialogAbout.sizePolicy().hasHeightForWidth())
         DialogAbout.setSizePolicy(sizePolicy)
         DialogAbout.setMinimumSize(QtCore.QSize(400, 446))
         DialogAbout.setMaximumSize(QtCore.QSize(400, 446))
-        self.lblLogo = QtGui.QLabel(DialogAbout)
+        self.lblLogo = QtWidgets.QLabel(DialogAbout)
         self.lblLogo.setGeometry(QtCore.QRect(140, 70, 121, 20))
         self.lblLogo.setObjectName(_fromUtf8("lblLogo"))
-        self.lblAppVersion = QtGui.QLabel(DialogAbout)
+        self.lblAppVersion = QtWidgets.QLabel(DialogAbout)
         self.lblAppVersion.setGeometry(QtCore.QRect(10, 160, 381, 41))
         font = QtGui.QFont()
         font.setPointSize(24)
@@ -47,12 +47,12 @@ class ui_dialog_about(object):
         self.lblAppVersion.setScaledContents(False)
         self.lblAppVersion.setAlignment(QtCore.Qt.AlignCenter)
         self.lblAppVersion.setObjectName(_fromUtf8("lblAppVersion"))
-        self.lblAppDesc = QtGui.QLabel(DialogAbout)
+        self.lblAppDesc = QtWidgets.QLabel(DialogAbout)
         self.lblAppDesc.setGeometry(QtCore.QRect(10, 210, 381, 51))
         self.lblAppDesc.setAlignment(QtCore.Qt.AlignCenter)
         self.lblAppDesc.setWordWrap(True)
         self.lblAppDesc.setObjectName(_fromUtf8("lblAppDesc"))
-        self.lblCopyright = QtGui.QLabel(DialogAbout)
+        self.lblCopyright = QtWidgets.QLabel(DialogAbout)
         self.lblCopyright.setGeometry(QtCore.QRect(10, 270, 381, 51))
         font = QtGui.QFont()
         font.setPointSize(9)

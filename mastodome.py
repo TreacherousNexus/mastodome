@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from PyQt4 import QtGui
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from gui import mainwindow
 
 def window():
-    app = QtGui.QApplication(sys.argv)
-    MainWindow = QtGui.QMainWindow()
+    app = QApplication(sys.argv)
+    MainWindow = QMainWindow()
     ui = mainwindow.MainWindow(MainWindow)
     ui.link_slots()
     MainWindow.show()

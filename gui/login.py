@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 from mastodon.Mastodon import MastodonError
 from config.translations import Translations
 from config.icons_pics import Pics
@@ -16,12 +16,12 @@ except AttributeError:
         return s
 
 try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
+    _encoding = QtWidgets.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 
 
 class ui_login_dialog(object):
@@ -37,45 +37,47 @@ class ui_login_dialog(object):
         self.logged_in_domain = None
         self.latest_exception = None
         self.logged_in_user = None
-        self.buttonBox = QtGui.QDialogButtonBox(loginDialog)
+        self.buttonBox = QtWidgets.QDialogButtonBox(loginDialog)
         self.buttonBox.setGeometry(QtCore.QRect(30, 240, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
-        self.formLayoutWidget = QtGui.QWidget(loginDialog)
+        self.formLayoutWidget = QtWidgets.QWidget(loginDialog)
         self.formLayoutWidget.setGeometry(QtCore.QRect(30, 120, 341, 101))
         self.formLayoutWidget.setObjectName(_fromUtf8("formLayoutWidget"))
-        self.formLayout = QtGui.QFormLayout(self.formLayoutWidget)
-        self.formLayout.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
+        self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
+        self.formLayout.setFieldGrowthPolicy(QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
         self.formLayout.setObjectName(_fromUtf8("formLayout"))
-        self.mServerLabel = QtGui.QLabel(self.formLayoutWidget)
+        self.mServerLabel = QtWidgets.QLabel(self.formLayoutWidget)
         self.mServerLabel.setObjectName(_fromUtf8("mServerLabel"))
-        self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.mServerLabel)
-        self.mServerLineEdit = QtGui.QLineEdit(self.formLayoutWidget)
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.mServerLabel)
+        self.mServerLineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.mServerLineEdit.setInputMethodHints(QtCore.Qt.ImhUrlCharactersOnly)
         self.mServerLineEdit.setObjectName(_fromUtf8("mServerLineEdit"))
-        self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.mServerLineEdit)
-        self.unameLabel = QtGui.QLabel(self.formLayoutWidget)
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.mServerLineEdit)
+        self.unameLabel = QtWidgets.QLabel(self.formLayoutWidget)
         self.unameLabel.setObjectName(_fromUtf8("unameLabel"))
-        self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.unameLabel)
-        self.uNameLineEdit = QtGui.QLineEdit(self.formLayoutWidget)
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.unameLabel)
+        self.uNameLineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.uNameLineEdit.setObjectName(_fromUtf8("uNameLineEdit"))
-        self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.uNameLineEdit)
-        self.pwdLabel = QtGui.QLabel(self.formLayoutWidget)
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.uNameLineEdit)
+        self.pwdLabel = QtWidgets.QLabel(self.formLayoutWidget)
         self.pwdLabel.setObjectName(_fromUtf8("pwdLabel"))
-        self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.pwdLabel)
-        self.pwdLineEdit = QtGui.QLineEdit(self.formLayoutWidget)
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.pwdLabel)
+        self.pwdLineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.pwdLineEdit.setInputMethodHints(QtCore.Qt.ImhHiddenText|QtCore.Qt.ImhNoAutoUppercase|QtCore.Qt.ImhNoPredictiveText)
-        self.pwdLineEdit.setEchoMode(QtGui.QLineEdit.Password)
+        self.pwdLineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.pwdLineEdit.setObjectName(_fromUtf8("pwdLineEdit"))
-        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.pwdLineEdit)
-        self.lblMastoLogo = QtGui.QLabel(loginDialog)
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.pwdLineEdit)
+        self.lblMastoLogo = QtWidgets.QLabel(loginDialog)
         self.lblMastoLogo.setGeometry(QtCore.QRect(140, 50, 120, 20))
         self.lblMastoLogo.setObjectName(_fromUtf8("lblMastoLogo"))
 
         self.retranslate_ui(loginDialog)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), loginDialog.accept)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), loginDialog.reject)
+
+        self.buttonBox.accepted.connect(loginDialog.accept)
+        self.buttonBox.rejected.connect(loginDialog.reject)
+
         QtCore.QMetaObject.connectSlotsByName(loginDialog)
         loginDialog.accepted.connect(self.complete_login)
         self.credentials_fetch()
