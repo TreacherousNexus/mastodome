@@ -1,27 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-
-    Mastodome - Desktop Client for Mastodon
-    Copyright (C) 2018 Bobby Moss bob[at]bobstechsite.com
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-"""
-
 from PyQt4 import QtCore, QtGui
+from mastodon.Mastodon import MastodonError
 from config.translations import Translations
 from config.icons_pics import Pics
 from rest.credentials import Credentials
@@ -53,6 +34,9 @@ class ui_login_dialog(object):
         pics = Pics()
         loginDialog.setWindowIcon(QtGui.QIcon(pics.loginLogoImg))
         self.new_session = None
+        self.logged_in_domain = None
+        self.latest_exception = None
+        self.logged_in_user = None
         self.buttonBox = QtGui.QDialogButtonBox(loginDialog)
         self.buttonBox.setGeometry(QtCore.QRect(30, 240, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -94,6 +78,7 @@ class ui_login_dialog(object):
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), loginDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(loginDialog)
         loginDialog.accepted.connect(self.complete_login)
+        self.credentials_fetch()
 
     def retranslate_ui(self, loginDialog):
         lingo = Translations()
@@ -111,41 +96,65 @@ class ui_login_dialog(object):
         self.mServerLineEdit.setText("https://")
         self.mServerLineEdit.setFocus(True)
 
+    def credentials_fetch(self):
+        print api.get_existing_users_and_domains()  # Will be used to populate drop-down lists to save typing
+
     def complete_login(self):
         server_url = str(self.mServerLineEdit.text())
         user_name = str(self.uNameLineEdit.text())
 
         if not validators.url(server_url):
             print('Not a valid server URL')
+            self.latest_exception = ValueError("Not a valid server URL")
             raise ValueError
 
         if not validators.email(user_name):
             print('Not a valid user name')
+            self.latest_exception = ValueError("Not a valid user name")
             raise ValueError
 
-        login_attempt = Credentials(server_url)
+        self.logged_in_domain = server_url
+        login_attempt = Credentials(server_url, user_name)
+
         try:
             if not login_attempt.is_client_registered():
                 login_attempt.client_register()
-        except Exception as inst:
-            print type(inst)
+        except MastodonError as m:
+            print type(m)
+            self.latest_exception = MastodonError(m)
             raise
 
         user_pwd = str(self.pwdLineEdit.text())
         try:
             if not login_attempt.is_user_registered():
-                login_attempt.user_register(user_name, user_pwd)
-        except Exception as inst:
-            print type(inst)
+                login_attempt.user_register(user_pwd)
+        except MastodonError as m:
+            print type(m)
+            self.latest_exception = MastodonError(m)
             raise
 
         try:
-            new_session = api.Session(server_url)
-            new_session.initialise_session(user_name, user_pwd)
-            self.new_session = new_session
-        except Exception as inst:
-            print type(inst)
+            self.create_session(server_url, user_name, user_pwd)
+        except MastodonError as m:
+            print type(m)
+            self.latest_exception = MastodonError(m)
             raise
+
+    def create_session(self, server_url, user_name, user_pwd):
+        new_session = api.Session(server_url, user_name)
+        new_session.initialise_session(user_pwd)
+        self.new_session = new_session
+        self.logged_in_domain = server_url
+        self.logged_in_user = user_name
 
     def get_new_session(self):
         return self.new_session
+
+    def get_logged_in_domain(self):
+        return self.logged_in_domain
+
+    def get_logged_in_user(self):
+        return self.logged_in_user
+
+    def get_latest_exception(self):
+        return self.latest_exception

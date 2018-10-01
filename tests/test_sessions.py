@@ -27,9 +27,9 @@ domain = "domain.ext"
 username = "user@domain.com"
 password = "password"
 
-test_session = api.Session(domain)
+test_session = api.Session(domain, username)
 test_session.clear_session()    # Optional. You may wish to comment it out if running a lot of tests in quick succession
-test_session.initialise_session(username, password)
+test_session.initialise_session(password)
 test_session.send_toot("This is a test from Mastodome")
 
 print test_session.get_session_username()

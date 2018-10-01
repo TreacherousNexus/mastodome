@@ -2,7 +2,7 @@
 A new Qt-based Mastodon client written in Python.
 
 ## Intro
-Mastodome is a a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better. More specifically:
+Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better. More specifically:
 * Ad-supported messages and bots don't clutter up your news feed
 * There's no "engagement algorithms" showing you messages out of order and out of context deliberately to make you angry
 * Moderation is more effective because there's more people doing it in the first place
@@ -19,10 +19,9 @@ For some great advice on how to get started and register, check out [this noobie
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from github using one of the following commands:
 ```
-git clone https://github.com/Mastodome/mastodome-qt.git
-git clone git@github.com:Mastodome/mastodome-qt.git
+svn co https://code.bobstechsite.com/svn/mastodome/trunk/ mastodome
 ```
-You should now open the `DEV_NOTES` file and install all the dependencies this package requires using your system's package manager and `pip`. 
+You should now open the `DEVNOTES` file and install all the dependencies this package requires using your system's package manager and `pip`. 
 Once you've done so, navigate to the cloned directory and launch Mastodome with:
 ```
 python mastodome.py
@@ -30,7 +29,17 @@ python mastodome.py
 
 In future releases I will make the process of installing and running Mastodome much simpler. There will also be a user guide on the project wiki with pictures and diagrams.
 
-## New in this release (0.1)
+## New in this release (0.2)
+* TODO
+
+## New in previous releases:
+### 0.1.1
+* Now provided under BSD-style license (see LICENSE.TXT)
+* Fetches existing login tokens from the local keyring instead of getting a new one each time
+* Outputs error message during login via a dialog instead of the debugger
+* Experimental work on credential storage routines (may be a bit buggy)
+
+### 0.1
 * Supports Login and logout for one Mastodon account at a time (tokens are stored in the local keystore)
 * Posts plain text toots up to 280 characters in size (you can edit this limit in `config/config.py`)
 * Fetches read-only notifications that point at URLs
@@ -67,10 +76,10 @@ Finally, there's [a list of ideas](https://github.com/Mastodome/mastodome-qt/iss
 
 ### Is Mastodome open source and/or free software?
 Yes! 
-* Mastodome is licensed under [the GNU General Public License v3 (or later)](https://www.gnu.org/licenses/quick-guide-gplv3.en.html). You can see full details in the `LICENSE` file, and there is a copyright notice in all Python modules.
+* Mastodome is licensed under a BSD-style license. You can see full details in the `LICENSE.TXT` file.
 * Most icon images are public domain and taken from Gnome's [Tango](https://commons.wikimedia.org/wiki/Tango_icons) iconset.
 * The Mastodon logo and the mascot used on the login window are the property of the [Mastodon](https://github.com/tootsuite/mastodon) project and distributed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html).
-* Custom artwork I created for Mastodome (i.e. the Mastodome icon and image in the About window) are the property of me (Bobby Moss) and shared under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/), so as long as you don't claim you created them yourself and relicense your changes under the same terms you're free to do what you like with them.
+* Custom artwork I created for Mastodome (i.e. the Mastodome icon and image in the About window) are the property of me (Bobby Moss) and shared under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 So, if you're someone who likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.
 
@@ -81,35 +90,9 @@ You can help by...
 * Writing blog posts about Mastodome
 * [Donating to the project](https://liberapay.com/bobstechsite/donate) on Liberapay
 * Contributing a translation file to the project
-* Reporting bugs you discover [on this page](https://github.com/Mastodome/mastodome-qt/issues) (check if if it's already been reported first!)
-* [Posting ideas](https://github.com/Mastodome/mastodome-qt/issues?q=is%3Aopen+is%3Aissue+label%3Aidea) for improving Mastodome in general and/or its GUI
+* Reporting bugs via email to bob@bobstechsite.com or via Mastodon @bobstechsite@mastodon.technology
 * Contributing code, tests and documentation
 * Doing anything else you think would be useful
-
-### How do I contribute code?
-It's quite straightforward!
-1. You create your own local fork of the project (use the "fork" button on Mastodome's [github project page](https://github.com/Mastodome/mastodome-qt))
-1. Apply your changes in the "dev" branch
-1. When you think your code is stable enough, [submit a pull request](https://github.com/Mastodome/mastodome-qt/pulls) to sync your dev branch with mine
-1. As soon as I get time I'll take a look at your code and try it out
-1. If it needs some tweaking I'll offer some feedback
-
-If the code is good I'll merge it into the project. 
-If I judge it to be "bad" then I won't, but I will always explain why I arrived at that decision so you have an opportunity to fix it. (If you don't agree with me, the project's license permits you to redistribute your forked version under a new name so long as it's also licensed under the GNU GPLv3 or later).
-
-### How will my contributions be licensed?
-
-You should take the time to read and understand the `LICENSE` file *before* contributing time and code to this project. In summary: Your code will be licensed under the GNU GPLv3 (or later) and you're granting me, every other contributor and anyone who distributes Mastodome or makes their own fork the perpetual right to use your work without being sued or paying royalties for it.
-
-Please do not add your name, email address, website or mastodon account to code files you've contributed to. Instead add it to `credits.csv` where it will be immediately visible to everyone who downloads the code. I am planning to add a "credits" button on the `Help` > `About` screen in Mastodome 0.2, so this will also help me ensure I can display the relevant information to end users as well.
-
-Finally, once that list starts to grow all license notices will be updated to say "Copyright © 2018 Bobby Moss and the Mastodome contributors" to acknowledge outside contributions.
-
-### How do I add a translation or change the keyboard shortcuts?
-Simply copy `en.json` from the `config/lang/` folder, edit the values next to the keys, rename it and the put your file back in the same folder.
-To make use of your new translation change the `GUI_LANG` value in `config/config.py` to the name of the JSON file without the `.json` extension.
-
-If you've made direct edits to `en.json` and permanently broken it, your best bet is to replace it with a fresh copy from the git repository.
 
 ### Why didn't you write this in C++/Rust/Java/insert favourite language?
 There are a few reasons:
@@ -126,7 +109,7 @@ There are also beneficial side-effects of using Python:
 Those last two points are particularly important to me because I want to make this software program as accessible as possible to everyone. This is why Mastosome already supports translations and will be as user-configurable as possible. I also chose to stick with well-established libraries/frameworks/UI paradigms because they work across the widest range of PCs (of varying age) and existing disability-assistance tools.
 
 ### Will Mastodome support cross-posting to multiple accounts?
-Yes! See [the milestones page](https://github.com/Mastodome/mastodome-qt/milestones) for my latest view on when I expect that to happen.
+It's on the roadmap, but I'm not ready to give a timeline on it yet.
 
 ### Will Mastodome support cross-posting to Twitter/Facebook/Google+?
 Not in the immediate future, for the following reasons:

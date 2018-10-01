@@ -1,32 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-
-    Mastodome - Desktop Client for Mastodon
-    Copyright (C) 2018 Bobby Moss bob[at]bobstechsite.com
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-"""
-
 from PyQt4 import QtCore, QtGui
 from config.translations import Translations
 from config.icons_pics import Icons, Pics
 from config import config
 from gui import login, about
-from rest import toots, fetch
+from rest import toots, fetch, api
 import validators
 
 try:
@@ -289,6 +269,7 @@ class MainWindow(object):
         dialog.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         dialog.accepted.connect(lambda: self.complete_login(dialog))
         dialog.rejected.connect(self.cancelled_login)
+        dialog.destroyed.connect(lambda: self.check_login_status(dialog))
         dialog.exec_()
 
     def complete_login(self, dialog):
@@ -300,7 +281,8 @@ class MainWindow(object):
             self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginUnlockedIcon))
             self.actionLogout.setEnabled(True)
             status_start = lingo.load("lblStatusComplete")
-            self.lblStatus.setText(status_start + ": " + self.current_session.get_session_username())
+            self.lblStatus.setText(status_start + ": " + self.current_session.get_account_username()
+                                   + "@" + self.current_session.get_session_domain())
             self.btnToot.setEnabled(True)
             self.disable_all_stream_buttons()
             self.reload_panels()
@@ -310,9 +292,21 @@ class MainWindow(object):
         lingo = Translations()
         self.lblStatus.setText(lingo.load("lblStatus"))
 
+    def check_login_status(self, dialog):
+        problem = dialog.ui.get_latest_exception()
+        if problem is not None:
+            error_msg = QtGui.QErrorMessage()
+            error_msg.showMessage(str(problem))
+            error_msg.exec_()
+            lingo = Translations()
+            self.lblStatus.setText(lingo.load("lblStatus"))
 
     def logoff_user(self):
         if self.current_session is not None:
+            existing_session = api.Session(self.current_session.get_session_domain(),
+                                           self.current_session.get_session_username())
+            existing_session.load_session(self.current_session)
+            existing_session.clear_session()
             self.current_session = None
             self.actionLogout.setEnabled(False)
             self.actionLogin.setEnabled(True)
