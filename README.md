@@ -25,7 +25,7 @@ git clone https://bitbucket.org/bobstechsite/mastodome.git
 You should now open the `DEVNOTES` file and install all the dependencies this package requires using your system's package manager and `pip`.
 Once you've done so, navigate to the cloned directory and launch Mastodome with:
 ```
-python mastodome.py
+python3 mastodome.py
 ```
 
 In future releases I will make the process of installing and running Mastodome much simpler. There will also be a user guide on the project wiki with pictures and diagrams.
