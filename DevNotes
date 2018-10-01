@@ -1,15 +1,17 @@
 To develop this you will need the following packages installed
-python-pip
-python2.7-dev
+python3-pip
+python3.6-dev
+python3-pyqt4
 libxext-dev
-python-qt4
 qt4-dev-tools
 build-essential
 python-keyring
 pyqt4-dev-tools
 qt4-designer
 
-Pip dependencies:
+python-qt4??
+
+Pip3 dependencies:
 Mastodon.py
 validators
 html2text
@@ -19,3 +21,6 @@ html2text
 To run the application navigate to folder and run mastodome.py
 
 Use pyuic4 if you want to convert ui files to python: pyuic4 file.ui -o file.py
+
+
+
