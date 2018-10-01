@@ -37,7 +37,6 @@ In future releases I will make the process of installing and running Mastodome m
 * Overhauled credential management
     * Fetches existing login tokens from the local keyring and supports refresh tokens
     * Outputs error message during login via a dialog instead of the debugger
-    * TODO: Supports two-factor authentication
 
 ## New in previous releases:
 ### 0.1
