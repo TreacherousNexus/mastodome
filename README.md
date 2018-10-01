@@ -30,15 +30,13 @@ python mastodome.py
 In future releases I will make the process of installing and running Mastodome much simpler. There will also be a user guide on the project wiki with pictures and diagrams.
 
 ## New in this release (0.2)
-* TODO
-
-## New in previous releases:
-### 0.1.1
+* TODO : ADD FEATURES
 * Now provided under BSD-style license (see LICENSE.TXT)
 * Fetches existing login tokens from the local keyring instead of getting a new one each time
 * Outputs error message during login via a dialog instead of the debugger
 * Experimental work on credential storage routines (may be a bit buggy)
 
+## New in previous releases:
 ### 0.1
 * Supports Login and logout for one Mastodon account at a time (tokens are stored in the local keystore)
 * Posts plain text toots up to 280 characters in size (you can edit this limit in `config/config.py`)
