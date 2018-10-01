@@ -33,6 +33,7 @@ In future releases I will make the process of installing and running Mastodome m
 ## New in this release (0.2)
 * TODO : ADD FEATURES
 * Now provided under BSD-style license (see LICENSE.TXT)
+* Runs on Python3 instead of Python2
 * Fetches existing login tokens from the local keyring instead of getting a new one each time
 * Outputs error message during login via a dialog instead of the debugger
 * Experimental work on credential storage routines (may be a bit buggy)
