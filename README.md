@@ -50,8 +50,6 @@ In future releases I will make the process of installing and running Mastodome m
 * Refreshes both visible panels (use `Edit` > `Refresh` or the `F5` key)
 * Supports the use of translation files (See `config/config.py` and `config/lang/en.json`)
 
-See [this list of closed issues](https://github.com/Mastodome/mastodome-qt/milestone/1?closed=1) for a more detailed view of new features and bug-fixes.
-
 ## Known Issues
 * Noticeable lag when you login, switch between streams or refresh the visible panels
 * Errors are not surfaced in dialogs yet, they output to the console window
@@ -62,8 +60,6 @@ See [this list of closed issues](https://github.com/Mastodome/mastodome-qt/miles
 * None of the windows can be resized
 * Toots with "content warnings" in the web interface are currently displayed in full and without warnings
 * To view the contents of notifications and hyperlinks you have to copy the entry (highlight and `Ctrl+C`) and paste into an external program
-
-See [this list of open bugs](https://github.com/Mastodome/mastodome-qt/issues?q=is%3Aopen+is%3Aissue+label%3Abug) for a comprehensive list
 
 ## FAQs
 
@@ -88,9 +84,8 @@ You can help by...
 * Spreading the word about how awesome Mastodon is to people who don't use it yet
 * Recommending the Mastodome client to your followers on Mastodon
 * Writing blog posts about Mastodome
-* [Donating to the project](https://liberapay.com/bobstechsite/donate) on Liberapay
 * Contributing a translation file to the project
-* Reporting bugs via email to bob@bobstechsite.com or via Mastodon @bobstechsite@mastodon.technology
+* Reporting bugs via email to bob@bobstechsite.com or via Mastodon @bobstechsite@bobadon.rocks
 * Contributing code, tests and documentation
 * Doing anything else you think would be useful
 
@@ -124,10 +119,10 @@ If you disagree then you're welcome to fork Mastodome and add that functionality
 ### Does Mastodome support GNU Social?
 Not just yet. You can try it and see if it works, but its API differs quite a bit from that of Mastodon so I would expect most things to be horribly broken.
 
-I am currently on the look-out for a GNU Social library I can import (or write a Python wrapper around) and start using within Mastodome. See [the milestones page](https://github.com/Mastodome/mastodome-qt/milestones) for a view on when support is likely to appear.
+I am currently on the look-out for a GNU Social library I can import (or write a Python wrapper around) and start using within Mastodome.
 
 ### Will you support cross-posting to other decentralised networks and free software/open source services?
-Yes! I've already penciled in support for Diaspora\*, Ghost and Wordpress on [the milestones page](https://github.com/Mastodome/mastodome-qt/milestones).
+In principle, yes!
 
 ### Will you support that other feature I just thought of?
 Check out the [milestones list](https://github.com/bjm1904/mastodome-qt/milestones) for a summary of what I'm planning for versions up to 1.0.
