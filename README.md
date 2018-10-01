@@ -62,14 +62,6 @@ In future releases I will make the process of installing and running Mastodome m
 * To view the contents of notifications and hyperlinks you have to copy the entry (highlight and `Ctrl+C`) and paste into an external program
 
 ## FAQs
-
-### What features are coming in the next release
-Check out [the milestones](https://github.com/Mastodome/mastodome-qt/milestones) I've set for this project. While this is still subject to change (as during the course of development I will inevitably push some functionality out to later releases and pull in other functionality I can do sooner) it gives you a general idea of the order I'm implementing things in and when I expect to release them.
-
-Please bear in mind that I (Bobby Moss) am just one human being doing this in my spare time in addition to a full-time job, freelance writing work, other side-projects and the usual "life" things. I'm not a miracle worker and can't implement every single piece of functionality at the same time!
-
-Finally, there's [a list of ideas](https://github.com/Mastodome/mastodome-qt/issues?q=is%3Aopen+is%3Aissue+label%3Aidea) for features that might be included in future versions of Mastodome. They are often "provisionally" added to a milestone, but this is subject to change.
-
 ### Is Mastodome open source and/or free software?
 Yes! 
 * Mastodome is licensed under a BSD-style license. You can see full details in the `LICENSE.TXT` file.
@@ -125,8 +117,6 @@ I am currently on the look-out for a GNU Social library I can import (or write a
 In principle, yes!
 
 ### Will you support that other feature I just thought of?
-Check out the [milestones list](https://github.com/bjm1904/mastodome-qt/milestones) for a summary of what I'm planning for versions up to 1.0.
-
 They'll all be 0.x (with the "x" corresponding to the month I'm going to be working on it) and the following are intended to be the "major" pre-release versions. This is subject to change.
 
 * 0.1: First proof of concept
