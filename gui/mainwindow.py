@@ -442,7 +442,7 @@ class MainWindow(object):
             self.listOfNotifications.setModel(model)
 
     def check_toot_box(self):
-        current_length = self.plainTextTootBox.toPlainText().length()
+        current_length = len(self.plainTextTootBox.toPlainText())
         self.btnToot.setEnabled(0 < current_length < self.config.GUI_TOOT_MAX_SIZE_CHARS)
 
         if current_length >= self.config.GUI_TOOT_MAX_SIZE_CHARS:
