@@ -20,9 +20,9 @@ For some great advice on how to get started and register, check out [this noobie
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from bitbucket using the following commands:
 ```
-git clone https://bobstechsite@bitbucket.org/bobstechsite/mastodome.git
+git clone https://bitbucket.org/bobstechsite/mastodome.git
 ```
-You should now open the `DEVNOTES` file and install all the dependencies this package requires using your system's package manager and `pip`. 
+You should now open the `DEVNOTES` file and install all the dependencies this package requires using your system's package manager and `pip`.
 Once you've done so, navigate to the cloned directory and launch Mastodome with:
 ```
 python mastodome.py
@@ -62,7 +62,7 @@ In future releases I will make the process of installing and running Mastodome m
 
 ## FAQs
 ### Is Mastodome open source and/or free software?
-Yes! 
+Yes!
 * Mastodome is licensed under a BSD-style license. You can see full details in the `LICENSE.TXT` file.
 * Most icon images are public domain and taken from Gnome's [Tango](https://commons.wikimedia.org/wiki/Tango_icons) iconset.
 * The Mastodon logo and the mascot used on the login window are the property of the [Mastodon](https://github.com/tootsuite/mastodon) project and distributed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html).
@@ -83,7 +83,7 @@ You can help by...
 ### Why didn't you write this in C++/Rust/Java/insert favourite language?
 There are a few reasons:
 * Not every language has a well-supported library for Mastodon, and I don't have time to write my own
-* This application is used by one user on one system, so milliseconds of latency won't matter 
+* This application is used by one user on one system, so milliseconds of latency won't matter
 * Building machine-compiled versions for each processor architecture and operating system seems a bit of a chore
 
 There are also beneficial side-effects of using Python:
