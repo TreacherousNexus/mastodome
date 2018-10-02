@@ -446,6 +446,6 @@ class MainWindow(object):
         self.btnToot.setEnabled(0 < current_length < self.config.GUI_TOOT_MAX_SIZE_CHARS)
 
         if current_length >= self.config.GUI_TOOT_MAX_SIZE_CHARS:
-            self.plainTextTootBox.setStyleSheet("background-color: rgb(206, 92, 92);")
+            self.plainTextTootBox.setStyleSheet("color: rgb(206, 92, 92);")
         else:
-            self.plainTextTootBox.setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.plainTextTootBox.setStyleSheet("")
