@@ -40,7 +40,7 @@ In future releases I will make the process of installing and running Mastodome m
     * Text box no longer overrides system theme
     * TODO: Users can now right-click a toot to reply to it from the text box
     * TODO: Users can now right-click a toot to boost or star it
-    * TODO: Clicking "Toot" asks the user to set post privacy (this can be disabled in config. Uses the server-set default privacy level)
+    * TODO: Clicking "Toot" asks the user to set post privacy (this can be disabled in config. Uses the server-set default privacy level for the logged in user)
 * Improved toot feeds
     * TODO: Content warnings are now respected (right-click for option to view toot)
     * TODO: Username & the action they performed is now highlighted in bold text above new toots
