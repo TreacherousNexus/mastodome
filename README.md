@@ -46,7 +46,7 @@ In future releases I will make the process of installing and running Mastodome m
     * TODO: Username & the action they performed is now highlighted in bold text above new toots
     * TODO: Notifications and the currently visible feed are now updated automatically on a timed interval (this can be set in config)
 
-### Limitations
+### Known Issues & Limitations
 * 2FA is still not supported. The first time you register the app you will have to disable it on your account, register the app and then re-enable it. You will have to do this if you ever use "log out..." instead of just exiting Mastodome
 * You still can't resize the GUI window, view individual user accounts or see other replies to toots
 * The only supported interaction with CWs is revealing the underlying toot. You can't add a CW to new toots, boost, star or reply to them
@@ -66,18 +66,6 @@ In future releases I will make the process of installing and running Mastodome m
 * Caches avatar images to save bandwidth and speed up load times (stored in `config/.cache`. This is cleared when you use `File` > `Logout...`)
 * Refreshes both visible panels (use `Edit` > `Refresh` or the `F5` key)
 * Supports the use of translation files (See `config/config.py` and `config/lang/en.json`)
-
-## Known Issues
-* Noticeable lag when you login, switch between streams or refresh the visible panels
-* Errors are not surfaced in dialogs yet, they output to the console window
-* You can't login to Mastodome if you have MFA enabled (it works if you login at least once *then* enable MFA)
-* Mastodome doesn't automatically login to your previous session, you have to open the login window again
-* However... it doesn't re-check your password if you've already logged in once (even if you log out) as it reuses the existing session key
-* If you revoke application access or the current session from the web interface, you won't be able to login again until you manually delete entries for that domain in your local keystore
-* None of the windows can be resized
-* Toots with "content warnings" in the web interface are currently displayed in full and without warnings
-* To view the contents of notifications and hyperlinks you have to copy the entry (highlight and `Ctrl+C`) and paste into an external program
-
 ## FAQs
 ### Is Mastodome open source and/or free software?
 Yes!
