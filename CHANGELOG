@@ -1,0 +1,10 @@
+Mastodome 0.1 (2018-01-31)
+* Supports Login and logout for one Mastodon account at a time (tokens are stored in the local keystore)
+* Posts plain text toots up to 280 characters in size (you can edit this limit in config/config.py)
+* Fetches read-only notifications that point at URLs
+* Fetches read-only toots from your home, local and public streams
+* Displays user avatars and display names next to toots and notifications
+* Displays the plain-text contents of toots and whether they're a boost or reply
+* Caches avatar images to save bandwidth and speed up load times (stored in config/.cache. This is cleared when you use File > Logout...)
+* Refreshes both visible panels (use Edit > Refresh or the F5 key)
+* Supports the use of translation files (See config/config.py and config/lang/en.json)

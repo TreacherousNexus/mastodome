@@ -55,17 +55,6 @@ In future releases I will make the process of installing and running Mastodome m
 * You can still only login and post with one Mastodon account at a time & no other fediverse platforms are supported at this time
 * If you change your mind and no longer want to reply to someone you'll need to restart Mastodome because there's no mechanism to clear the textbox *and* de-link the toot you're replying to
 
-## New in previous releases:
-### 0.1
-* Supports Login and logout for one Mastodon account at a time (tokens are stored in the local keystore)
-* Posts plain text toots up to 280 characters in size (you can edit this limit in `config/config.py`)
-* Fetches read-only notifications that point at URLs
-* Fetches read-only toots from your home, local and public streams
-* Displays user avatars and display names next to toots and notifications
-* Displays the plain-text contents of toots and whether they're a boost or reply
-* Caches avatar images to save bandwidth and speed up load times (stored in `config/.cache`. This is cleared when you use `File` > `Logout...`)
-* Refreshes both visible panels (use `Edit` > `Refresh` or the `F5` key)
-* Supports the use of translation files (See `config/config.py` and `config/lang/en.json`)
 ## FAQs
 ### Is Mastodome open source and/or free software?
 Yes!
