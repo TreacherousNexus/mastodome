@@ -20,7 +20,7 @@ For some great advice on how to get started and register, check out [this noobie
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from bitbucket using the following commands:
 ```
-git clone https://bitbucket.org/bobstechsite/mastodome.git
+git clone git@gitlab.com:bobstechsite/mastodome.git
 ```
 You should now open the `DEVNOTES` file and install all the dependencies this package requires using your system's package manager and `pip3`.
 Once you've done so, navigate to the cloned directory and launch Mastodome with:
