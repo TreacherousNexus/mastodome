@@ -91,7 +91,7 @@ Those last two points are particularly important to me because I want to make th
 ### Will Mastodome support cross-posting to multiple accounts?
 It's on the roadmap, but I'm not ready to give a timeline on it yet.
 
-### Will Mastodome support cross-posting to Twitter/Facebook/Google+?
+### Will Mastodome support cross-posting to Twitter and Facebook?
 Not in the immediate future, for the following reasons:
 * All three networks require me to have an account and register on their developer portal to use their closed APIs
 * The keys provided to access those closed APIs can be revoked at any time and without warning, and I'd get the blame
@@ -107,7 +107,7 @@ Not just yet. You can try it and see if it works, but its API differs quite a bi
 I am currently on the look-out for a GNU Social library I can import (or write a Python wrapper around) and start using within Mastodome.
 
 ### Will you support cross-posting to other decentralised networks and free software/open source services?
-In principle, yes!
+Eventually, yes! So long as there's an existing Python library (or I have the motivation to write the REST calls myself) there's no reason why I couldn't add this at some point.
 
 ### Will you support that other feature I just thought of?
 They'll all be 0.x (with the "x" corresponding to the month I'm going to be working on it) and the following are intended to be the "major" pre-release versions. This is subject to change.
