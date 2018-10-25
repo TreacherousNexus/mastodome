@@ -57,7 +57,7 @@ In future releases I will make the process of installing and running Mastodome m
 ## FAQs
 ### Is Mastodome open source and/or free software?
 Yes!
-* Mastodome is licensed under the GNU GPLv3. You can see full details in the `LICENSE.TXT` file.
+* Mastodome is licensed under the GNU GPLv3
 * Most icon images are public domain and taken from Gnome's [Tango](https://commons.wikimedia.org/wiki/Tango_icons) iconset.
 * The Mastodon logo and the mascot used on the login window are the property of the [Mastodon](https://github.com/tootsuite/mastodon) project and distributed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html).
 * Custom artwork I created for Mastodome (i.e. the Mastodome icon and image in the About window) are the property of me (Bobby Moss) and shared under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
