@@ -46,7 +46,7 @@
   "pwdLabel": "Password:",
   "DialogAbout": "About",
   "lblAppDesc": "is a native desktop client for Mastodon. Runs best on GNU/Linux.",
-  "lblCopyright": "Copyright © 2018 Bobby Moss<br/>Freely provided under a BSD-style license.",
+  "lblCopyright": "Copyright © 2018 Bobby Moss<br/>Freely provided under the GNU GPLv3.",
   "notify_mention": "mentioned you in",
   "notify_reblog": "boosted you in",
   "notify_fav": "favourited you in",
