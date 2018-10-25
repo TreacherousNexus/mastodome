@@ -70,7 +70,7 @@ You can help by...
 * Recommending the Mastodome client to your followers on Mastodon
 * Writing blog posts about Mastodome
 * Contributing a translation file to the project
-* Reporting bugs via the Gitlab project or via Mastodon @bobstechsite@bobadon.rocks
+* Reporting bugs via the Gitlab project or via Mastodon
 * Contributing code, tests and documentation
 * Doing anything else you think would be useful
 
