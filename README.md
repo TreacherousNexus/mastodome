@@ -89,7 +89,7 @@ There are also beneficial side-effects of using Python:
 Those last two points are particularly important to me because I want to make this software program as accessible as possible to everyone. This is why Mastodome already supports translations and will be as user-configurable as possible. I also chose to stick with well-established libraries/frameworks/UI paradigms because they work across the widest range of PCs (of varying age) and existing disability-assistance tools.
 
 ### Will Mastodome support cross-posting to multiple accounts?
-It's on the roadmap, but I'm not ready to give a timeline on it yet.
+It's on the roadmap, but I'm not ready to give a timeline on it yet. I'm planning to support logging into multiple accounts with "fast switching" between them in 0.3.
 
 ### Will Mastodome support cross-posting to Twitter and Facebook?
 Not in the immediate future, for the following reasons:
