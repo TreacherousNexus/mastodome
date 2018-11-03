@@ -32,27 +32,23 @@ In future releases I will make the process of installing and running Mastodome m
 
 ## New in this release (0.2)
 * Upgraded to use Python 3 and Qt 5
+* TODO: Removed unneeded options in the toolbar
+* TODO: Main window can now be resized
 * Overhauled credential management
     * Fetches existing login tokens from the local keyring and supports refresh tokens
     * Outputs error message during login via a dialog instead of the debugger
+    * TODO: UI remembers which accounts you've logged into & lists them for easy switching between them
 * Improved toot creation
     * Text box no longer overrides system theme
-    * TODO: Users can now right-click a toot to reply to it from the text box
-    * TODO: Users can now right-click a toot to boost or star it
-    * TODO: Clicking "Toot" asks the user to set post privacy (this can be disabled in config. Uses the server-set default privacy level for the logged in user)
+    * TODO: Can now set the toot privacy level and apply a content warning
 * Improved toot feeds
-    * TODO: Content warnings are now respected (right-click for option to view toot)
+    * TODO: Content warnings are now respected (click on a toot to view content)
     * TODO: Username & the action they performed is now highlighted in bold text above new toots
-    * TODO: Notifications and the currently visible feed are now updated automatically on a timed interval (this can be set in config)
+    * TODO: Contents of notifications are now visible
 
 ### Known Issues & Limitations
 * 2FA is still not supported. The first time you register the app you will have to disable it on your account, register the app and then re-enable it. You will have to do this if you ever use "log out..." instead of just exiting Mastodome
-* You still can't resize the GUI window, view individual user accounts or see other replies to toots
-* The only supported interaction with CWs is revealing the underlying toot. You can't add a CW to new toots, boost, star or reply to them
-* You can't interact with notifications at all and they don't currently use any system notification mechanisms. They also still link to content instead of displaying it
 * The GUI still only permits toots up to 280 characters in size (this can be changed in config)
-* You can still only login and post with one Mastodon account at a time & no other fediverse platforms are supported at this time
-* If you change your mind and no longer want to reply to someone you'll need to restart Mastodome because there's no mechanism to clear the textbox *and* de-link the toot you're replying to
 
 ## FAQs
 ### Is Mastodome open source and/or free software?
