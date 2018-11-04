@@ -87,7 +87,7 @@ If you disagree then you're welcome to fork Mastodome and add that functionality
 ### Does Mastodome support other federated web services?
 Supporting other platforms is a long way off, but it's something I've started thinking about.
 
-[GNU Social](https://www.gnu.org/software/social/), [Pleroma](https://pleroma.social/) & [Diaspora*](https://diasporafoundation.org/) are probably the most likely candidates as they're both federated microblogging services with REST APIs I can use for Mastodome.
+[GNU Social](https://www.gnu.org/software/social/), [Pleroma](https://pleroma.social/) & [Diaspora*](https://diasporafoundation.org/) are probably the most likely candidates as they're popular federated microblogging services with REST APIs I can use for Mastodome.
 
 ### Will you support cross-posting to other decentralised networks and free software/open source services?
 Eventually, yes! So long as there's an existing Python library (or I have the motivation to write the REST calls myself) there's no reason why I couldn't add this at some point.
