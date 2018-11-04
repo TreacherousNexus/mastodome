@@ -76,7 +76,7 @@ I'm planning to support logging into multiple accounts with "fast switching" bet
 
 ### Will Mastodome support cross-posting to Twitter and Facebook?
 Not in the immediate future, for the following reasons:
-* All three networks require me to have an account and register on their developer portal to use their closed APIs
+* Both networks require me to have an account and register on their developer portal to use their closed APIs
 * The keys provided to access those closed APIs can be revoked at any time and without warning, and I'd get the blame
 * I don't want Mastodome to explicitly endorse the use of those networks due to their user-hostile behaviour and malicious use of non-free JavaScript
 
@@ -84,19 +84,19 @@ If you disagree then you're welcome to fork Mastodome and add that functionality
 * Users will blame the plugin rather than the whole application if these services revoke API access
 * We can let people who want to use those networks register their own API keys (they do this for Mastodon anyway, so it doesn't seem unreasonable to me)
 
-### Does Mastodome support GNU Social?
-Not just yet. You can try it and see if it works, but its API differs quite a bit from that of Mastodon so I would expect most things to be horribly broken.
+### Does Mastodome support other federated web services?
+Supporting other platforms is a long way off, but it's something I've started thinking about.
 
-I am currently on the look-out for a GNU Social library I can import (or write a Python wrapper around) and start using within Mastodome.
+[GNU Social](https://www.gnu.org/software/social/) and [Pleroma](https://pleroma.social/) are probably the most likely candidates as they're both federated microblogging services with REST APIs I can use for Mastodome.
 
 ### Will you support cross-posting to other decentralised networks and free software/open source services?
 Eventually, yes! So long as there's an existing Python library (or I have the motivation to write the REST calls myself) there's no reason why I couldn't add this at some point.
 
 ### Will you support that other feature I just thought of?
-They'll all be 0.x (with the "x" corresponding to the month I'm going to be working on it) and the following are intended to be the "major" pre-release versions. This is subject to change.
+Maybe. If there are they'll all be 0.x (with the "x" corresponding to the month I'm going to be working on it) and the following are intended to be the "major" pre-release versions. This is subject to change.
 
-* 0.1: First proof of concept
-* 0.4: All core functionality
-* 0.6: Everything you can do in browser
-* 0.9: Extra cool stuff like 3rd party integrations and RSS support
+* 0.1: First proof of concept (released January 2018)
+* 0.4: All the features I'd consider to be "core functionality"
+* 0.6: Useful things like hashtags, lists & other things I notice are missing when I start using it full-time
+* 0.9: Support for more federated services and a plugin interface
 * 1.0: Stable release with additional installers for Windows and Mac
