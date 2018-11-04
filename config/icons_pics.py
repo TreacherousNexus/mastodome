@@ -39,8 +39,6 @@ class Icons:
         self.actionExiticon = path + "exit.svg"
         self.actionPrefIcon = path + "pref.svg"
         self.actionRefreshIcon = path + "refresh.svg"
-        self.actionLinkIcon = path + "link.svg"
-        self.actionSubscribeIcon = path + "sub.svg"
         self.actionHelpIcon = path + "help.svg"
         self.actionAboutIcon = path + "about.svg"
 
