@@ -1,3 +1,4 @@
 *.pyc
 *.bak
 config/.defaults/known-keys.txt
+config/.cache/*
