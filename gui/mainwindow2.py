@@ -310,7 +310,8 @@ class MainWindow2(object):
             self.actionLogout.setEnabled(True)
             # TODO: Add login entry to listview here
             self.btnToot.setEnabled(True)
-            self.disable_all_stream_buttons()
+            self.plainTextEditToot.setEnabled(True)
+            self.plainTextEditToot.setFocus(True)
             self.reload_panels()
             self.enable_correct_stream_button()
 
@@ -377,7 +378,19 @@ class MainWindow2(object):
             self.enable_correct_stream_button()
 
     def send_toot(self):
-        print("toot button clicked")
+        if self.current_session is not None:
+            potential_toot = str(self.plainTextEditToot.toPlainText())
+            if validators.length(potential_toot, max=self.config.GUI_TOOT_MAX_SIZE_CHARS):
+                self.current_session.send_toot(potential_toot)
+                self.plainTextEditToot.clear()
+            else:
+                raise ValueError
+            lingo = Translations()
+            self.btnToot.setEnabled(False)
+            self.btnToot.setText(lingo.load("btnTootLoad"))
+            self.reload_panels()
+            self.btnToot.setEnabled(True)
+            self.btnToot.setText(lingo.load("btnToot"))
 
     def disable_all_stream_buttons(self):
         self.btnHome.setEnabled(False)
