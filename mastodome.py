@@ -24,12 +24,12 @@
 
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from gui import mainwindow2
+from gui import mainwindow
 
 def window():
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
-    ui = mainwindow2.MainWindow2(MainWindow)
+    ui = mainwindow.MainWindow(MainWindow)
     ui.link_slots()
     MainWindow.show()
     sys.exit(app.exec_())
