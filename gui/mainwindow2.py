@@ -292,22 +292,152 @@ class MainWindow2(object):
         about_dialog.exec_()
 
     def login_user(self):
-        print("login clicked")
+        dialog = QtWidgets.QDialog()
+        dialog.ui = login.ui_login_dialog()
+        dialog.ui.setupUi(dialog)
+        dialog.setAttribute(QtCore.Qt.WA_DeleteOnClose)
+        dialog.accepted.connect(lambda: self.complete_login(dialog))
+        dialog.rejected.connect(self.cancelled_login)
+        dialog.destroyed.connect(lambda: self.check_login_status(dialog))
+        dialog.exec_()
+
+    def complete_login(self, dialog):
+        self.current_session = dialog.ui.get_new_session()
+        if self.current_session is not None:
+            self.actionLogin.setEnabled(False)
+            icons = Icons()
+            self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginUnlockedIcon))
+            self.actionLogout.setEnabled(True)
+            # TODO: Add login entry to listview here
+            self.btnToot.setEnabled(True)
+            self.disable_all_stream_buttons()
+            self.reload_panels()
+            self.enable_correct_stream_button()
+
+    def cancelled_login(self):
+        print("cancelled login triggered")
+
+    def check_login_status(self, dialog):
+        problem = dialog.ui.get_latest_exception()
+        if problem is not None:
+            error_msg = QtWidgets.QErrorMessage()
+            error_msg.showMessage(str(problem))
+            error_msg.exec_()
 
     def logoff_user(self):
-        print("logoff clicked")
+        if self.current_session is not None:
+            existing_session = api.Session(self.current_session.get_session_domain(),
+                                           self.current_session.get_session_username())
+            existing_session.load_session(self.current_session)
+            existing_session.clear_session()
+            self.current_session = None
+            self.actionLogout.setEnabled(False)
+            self.actionLogin.setEnabled(True)
+            icons = Icons()
+            self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginLockedIcon))
+            self.btnToot.setEnabled(False)
+            self.reset_panels()
+            fetch.clear_image_cache()
 
     def reload_panels(self):
-        print("reload_panels triggered")
+        if self.current_session is not None:
+            self.load_stream_notifications()
+            if self.visibleStream == "home":
+                self.load_stream_home()
+            elif self.visibleStream == "local":
+                self.load_stream_local()
+            elif self.visibleStream == "public":
+                self.load_stream_public()
+
+    def reset_panels(self):
+        notifications_model = QtGui.QStandardItemModel(self.listViewNotifications)
+        toots_model = QtGui.QStandardItemModel(self.listViewToots)
+        self.listViewNotifications.setModel(notifications_model)
+        self.listViewToots.setModel(toots_model)
 
     def load_stream_home(self):
-        print("home button clicked")
+        if self.current_session is not None:
+            self.visibleStream = "home"
+            self.disable_all_stream_buttons()
+            self.load_stream_toots(self.current_session.get_home_stream())
+            self.enable_correct_stream_button()
 
     def load_stream_local(self):
-        print("local button clicked")
+        if self.current_session is not None:
+            self.visibleStream = "local"
+            self.disable_all_stream_buttons()
+            self.load_stream_toots(self.current_session.get_local_stream())
+            self.enable_correct_stream_button()
 
     def load_stream_public(self):
-        print("public button clicked")
+        if self.current_session is not None:
+            self.visibleStream = "public"
+            self.disable_all_stream_buttons()
+            self.load_stream_toots(self.current_session.get_public_stream())
+            self.enable_correct_stream_button()
 
     def send_toot(self):
         print("toot button clicked")
+
+    def disable_all_stream_buttons(self):
+        self.btnHome.setEnabled(False)
+        self.btnLocal.setEnabled(False)
+        self.btnPublic.setEnabled(False)
+
+    def enable_correct_stream_button(self):
+        self.btnHome.setEnabled(self.visibleStream is not "home")
+        self.btnLocal.setEnabled(self.visibleStream is not "local")
+        self.btnPublic.setEnabled(self.visibleStream is not "public")
+
+    def load_stream_toots(self, toot_stream):
+        if self.current_session is not None:
+            lingo = Translations()
+            model = QtGui.QStandardItemModel(self.listViewToots)
+            stream_to_load = toots.Toots(toot_stream)
+            stream_to_load.process()
+            for timestamp, toot in list(stream_to_load.get_toots().items()):
+                item = QtGui.QStandardItem()
+                icon = QtGui.QIcon()
+                image = QtGui.QImage()
+                if toot.is_boost():
+                    boosted_toot, boosted_timestamp = toot.get_boost_with_timestamp()
+                    image.load(fetch.get_image(boosted_toot.get_avatar()))
+                    output = boosted_toot.get_display_name() + " " + lingo.load("stream_toot_fetched") + ":\n\"" \
+                             + boosted_toot.get_content().rstrip() + "\""
+                    item.setText(output + "\n" + lingo.load("stream_boost_fetched") + ": " + toot.get_display_name())
+                elif toot.is_reply():
+                    image.load(fetch.get_image(toot.get_avatar()))
+                    item.setText(toot.get_display_name() + " " + lingo.load("stream_reply_fetched") + ":\n\""
+                                 + toot.get_content().rstrip() + "\"")
+                else:
+                    image.load(fetch.get_image(toot.get_avatar()))
+                    item.setText(toot.get_display_name() + " " + lingo.load("stream_toot_fetched") + ":\n\""
+                                 + toot.get_content().rstrip() + "\"")
+                icon.addPixmap(QtGui.QPixmap(image), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                item.setIcon(icon)
+                model.appendRow(item)
+            self.listViewToots.setModel(model)
+
+    def load_stream_notifications(self):
+        if self.current_session is not None:
+            lingo = Translations()
+            model = QtGui.QStandardItemModel(self.listViewNotifications)
+
+            notifications = self.current_session.get_notifications()
+            for timestamp, notification in list(notifications.items()):
+                item = QtGui.QStandardItem()
+                if notification.n_type == "follow":
+                    item.setText(notification.get_display_name() + " " + lingo.load("notify_follow") + ".")
+                elif notification.n_type == "reblog":
+                    item.setText(notification.get_display_name() + " " + lingo.load("notify_reblog") + " " + notification.status['uri'])
+                elif notification.n_type == "favourite":
+                    item.setText(notification.get_display_name() + " " + lingo.load("notify_fav") + " " + notification.status['uri'])
+                elif notification.n_type == "mention":
+                    item.setText(notification.get_display_name() + " " + lingo.load("notify_mention") + " " + notification.status['uri'])
+                icon = QtGui.QIcon()
+                image = QtGui.QImage()
+                image.load(fetch.get_image(notification.get_avatar()))
+                icon.addPixmap(QtGui.QPixmap(image), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                item.setIcon(icon)
+                model.appendRow(item)
+            self.listViewNotifications.setModel(model)
