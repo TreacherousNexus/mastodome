@@ -31,20 +31,7 @@ If you run into a `FileNotFoundError` on login, creating the `config/.cache` fol
 In future releases I will make the process of installing and running Mastodome much simpler. There will also be a user guide on the project wiki with pictures and diagrams.
 
 ## New in this release (0.2)
-* Upgraded to use Python 3 and Qt 5
-* TODO: Removed unneeded options in the toolbar
-* TODO: Main window can now be resized
-* Overhauled credential management
-    * Fetches existing login tokens from the local keyring and supports refresh tokens
-    * Outputs error message during login via a dialog instead of the debugger
-    * TODO: UI remembers which accounts you've logged into & lists them for easy switching between them
-* Improved toot creation
-    * Text box no longer overrides system theme
-    * TODO: Can now set the toot privacy level and apply a content warning
-* Improved toot feeds
-    * TODO: Content warnings are now respected (click on a toot to view content)
-    * TODO: Username & the action they performed is now highlighted in bold text above new toots
-    * TODO: Contents of notifications are now visible
+See `CHANGELOG` for list of in-development changes.
 
 ### Known Issues & Limitations
 * 2FA is still not supported. The first time you register the app you will have to disable it on your account, register the app and then re-enable it. You will have to do this if you ever use "log out..." instead of just exiting Mastodome

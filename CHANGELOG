@@ -2,12 +2,13 @@ Mastodome 0.2 (STILL IN DEV)
 * Ported to Python 3 and Qt 5
 * Fixed conflicting keyboard shortcuts
 * Main window can now be re-sized by users
+* TODO: Posts toots with content warnings and differing privacy levels
+* TODO: Supports logins for more than one mastodon at a time
 * TODO: Shows full notification text
 * TODO: Highlights user interaction at the top of each toot in the stream
 * TODO: Collapses toots with content warnings in the stream
-* TODO: Posts toots with content warnings and differing privacy levels
-* TODO: Supports logins for more than one mastodon at a time
-* TODO: Removed the status label and used the status bar instead
+* TODO: Outputs errors as message boxes, and error text is set in the translation files
+* Removed the status label
 
 Mastodome 0.1 (2018-01-31)
 * Supports Login and logout for one Mastodon account at a time (tokens are stored in the local keystore)
