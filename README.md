@@ -34,8 +34,8 @@ In future releases I will make the process of installing and running Mastodome m
 See `CHANGELOG` for list of in-development changes.
 
 ### Known Issues & Limitations
-* 2FA is still not supported. The first time you register the app you will have to disable it on your account, register the app and then re-enable it. You will have to do this if you ever use "log out..." instead of just exiting Mastodome
-* The GUI still only permits toots up to 280 characters in size (this can be changed in config)
+* 2FA is not supported. If you have enabled it for your account, you will need to disable it the first time you register the app, then re-enable it. You will have to do this if you ever use "log out..." instead of just exiting Mastodome
+* The GUI only permits toots up to 280 characters in size by default, but this can be changed in config
 
 ## FAQs
 ### Is Mastodome open source and/or free software?
