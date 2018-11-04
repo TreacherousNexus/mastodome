@@ -168,14 +168,14 @@ class MainWindow2(object):
         self.actionLogin.setShortcut(lingo.load("actionLoginShortcut"))
         self.actionLogin.setStatusTip(lingo.load("actionLoginTooltip"))
         self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginLockedIcon))
-        # self.actionLogin.triggered.connect(self.login_user)
+        self.actionLogin.triggered.connect(self.login_user)
 
         self.actionLogout.setText(_translate("MainWindow", lingo.load("actionLogout")))
         self.actionLogout.setShortcut(lingo.load("actionLogoutShortcut"))
         self.actionLogout.setStatusTip(lingo.load("actionLogoutTooltip"))
         self.actionLogout.setIcon(QtGui.QIcon(icons.actionLogoutIcon))
         self.actionLogout.setEnabled(False)
-        # self.actionLogout.triggered.connect(self.logoff_user)
+        self.actionLogout.triggered.connect(self.logoff_user)
 
         self.actionExit.setText(_translate("MainWindow", lingo.load("actionExit")))
         self.actionExit.setShortcut(lingo.load("actionExitShortcut"))
@@ -187,7 +187,7 @@ class MainWindow2(object):
         self.actionRefresh.setShortcut(lingo.load("actionRefreshShortcut"))
         self.actionRefresh.setStatusTip(lingo.load("actionRefreshTooltip"))
         self.actionRefresh.setIcon(QtGui.QIcon(icons.actionRefreshIcon))
-        # self.actionRefresh.triggered.connect(self.reload_panels)
+        self.actionRefresh.triggered.connect(self.reload_panels)
 
         self.actionPreferences.setText(_translate("MainWindow", lingo.load("actionPreferences")))
         self.actionPreferences.setStatusTip(lingo.load("actionPreferencesTooltip"))
@@ -214,21 +214,21 @@ class MainWindow2(object):
         self.btnHome.setStatusTip(lingo.load("btnHomeTooltip")
                                   + " (" + lingo.load("btnHomeShortcut") + ")")
         self.btnHome.setIcon(QtGui.QIcon(icons.btnHomeIcon))
-        # self.btnHome.clicked.connect(self.load_stream_home)
+        self.btnHome.clicked.connect(self.load_stream_home)
         self.btnHome.setEnabled(False)
 
         self.btnLocal.setShortcut(lingo.load("btnLocalShortcut"))
         self.btnLocal.setStatusTip(lingo.load("btnLocalTooltip")
                                    + " (" + lingo.load("btnLocalShortcut") + ")")
         self.btnLocal.setIcon(QtGui.QIcon(icons.btnLocalIcon))
-        # self.btnLocal.clicked.connect(self.load_stream_local)
+        self.btnLocal.clicked.connect(self.load_stream_local)
         self.btnLocal.setEnabled(False)
 
         self.btnPublic.setShortcut(lingo.load("btnPublicShortcut"))
         self.btnPublic.setStatusTip(lingo.load("btnPublicTooltip")
                                     + " (" + lingo.load("btnPublicShortcut") + ")")
         self.btnPublic.setIcon(QtGui.QIcon(icons.btnPublicIcon))
-        # self.btnPublic.clicked.connect(self.load_stream_public)
+        self.btnPublic.clicked.connect(self.load_stream_public)
         self.btnPublic.setEnabled(False)
 
         self.btnCW.setText(_translate("MainWindow", lingo.load("btnCW")))
@@ -241,7 +241,7 @@ class MainWindow2(object):
         self.btnToot.setStatusTip(lingo.load("btnTootTooltip")
                                   + " (" + lingo.load("btnTootShortcut") + ")")
         self.btnToot.setEnabled(False)
-        # self.btnToot.clicked.connect(self.send_toot)
+        self.btnToot.clicked.connect(self.send_toot)
 
     def setup_tootbox(self):
         lingo = Translations()
@@ -290,3 +290,24 @@ class MainWindow2(object):
         about_dialog.ui.setupUi(about_dialog)
         about_dialog.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         about_dialog.exec_()
+
+    def login_user(self):
+        print("login clicked")
+
+    def logoff_user(self):
+        print("logoff clicked")
+
+    def reload_panels(self):
+        print("reload_panels triggered")
+
+    def load_stream_home(self):
+        print("home button clicked")
+
+    def load_stream_local(self):
+        print("local button clicked")
+
+    def load_stream_public(self):
+        print("public button clicked")
+
+    def send_toot(self):
+        print("toot button clicked")
