@@ -51,7 +51,7 @@
   "stream_boost_fetched": "Boosted by",
   "cmbPrivacy": {
     "public": "Public",
-    "unlisted": "Unlisted",
+    "unlisted": "Local & Followers",
     "followers-only": "Followers Only",
     "direct-message": "Direct Message"
   }

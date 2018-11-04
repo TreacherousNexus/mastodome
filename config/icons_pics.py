@@ -41,6 +41,10 @@ class Icons:
         self.actionRefreshIcon = path + "refresh.svg"
         self.actionHelpIcon = path + "help.svg"
         self.actionAboutIcon = path + "about.svg"
+        self.cmbPublicToot = path + "public.svg"
+        self.cmbUnlistedToot = path + "local.svg"
+        self.cmbFollowerOnlyToot = path + "home.svg"
+        self.cmbDirectMessageToot = path + "dm.svg"
 
 
 class Pics:
