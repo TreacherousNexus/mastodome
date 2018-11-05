@@ -149,6 +149,9 @@ class MainWindow(object):
         main_title = lingo.load("MainWindow") + self.config.APP_NAME + " " + self.config.APP_VERSION
         _translate = QtCore.QCoreApplication.translate
         main_window.setWindowTitle(_translate("MainWindow", main_title))
+        self.listViewToots.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.listViewNotifications.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.listViewLoggedInAccounts.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 
     def link_slots(self):
         self.setup_top_menu()
