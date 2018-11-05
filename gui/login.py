@@ -101,7 +101,6 @@ class ui_login_dialog(object):
 
         QtCore.QMetaObject.connectSlotsByName(loginDialog)
         loginDialog.accepted.connect(self.complete_login)
-        self.credentials_fetch()
 
     def retranslate_ui(self, loginDialog):
         lingo = Translations()
@@ -118,9 +117,6 @@ class ui_login_dialog(object):
 
         self.mServerLineEdit.setText("https://")
         self.mServerLineEdit.setFocus(True)
-
-    def credentials_fetch(self):
-        print(api.get_existing_users_and_domains())  # Will be used to populate drop-down lists to save typing
 
     def complete_login(self):
         server_url = str(self.mServerLineEdit.text())
