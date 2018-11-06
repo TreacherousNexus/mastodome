@@ -333,8 +333,9 @@ class MainWindow(object):
                 except MastodonError as m:
                     print(type(m))
                     raise
+                self.update_ui_new_login()
             else:
-                self.login_user()
+                self.login_user(domain, user)
 
     def display_about(self):
         about_dialog = QtWidgets.QDialog()
@@ -343,11 +344,12 @@ class MainWindow(object):
         about_dialog.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         about_dialog.exec_()
 
-    def login_user(self):
+    def login_user(self, server_url="", user_name=""):
         dialog = QtWidgets.QDialog()
         dialog.ui = login.ui_login_dialog()
         dialog.ui.setupUi(dialog)
         dialog.setAttribute(QtCore.Qt.WA_DeleteOnClose)
+        dialog.ui.set_domain_and_user(server_url, user_name)
         dialog.accepted.connect(lambda: self.complete_login(dialog))
         dialog.rejected.connect(self.cancelled_login)
         dialog.destroyed.connect(lambda: self.check_login_status(dialog))

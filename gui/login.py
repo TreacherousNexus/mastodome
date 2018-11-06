@@ -166,6 +166,12 @@ class ui_login_dialog(object):
         self.logged_in_domain = server_url
         self.logged_in_user = user_name
 
+    def set_domain_and_user(self, server_url, user_name):
+        if type(server_url) is str and type(user_name) is str:
+            self.mServerLineEdit.setText(server_url)
+            self.uNameLineEdit.setText(user_name)
+            self.pwdLineEdit.setFocus(True)
+
     def get_new_session(self):
         return self.new_session
 
