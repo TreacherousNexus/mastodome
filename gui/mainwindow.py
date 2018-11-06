@@ -143,8 +143,11 @@ class MainWindow(object):
         self.menubar.addAction(self.menuEdit.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
         self.listViewToots.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.listViewToots.setWordWrap(True)
         self.listViewNotifications.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.listViewNotifications.setWordWrap(True)
         self.listViewLoggedInAccounts.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.listViewLoggedInAccounts.setWordWrap(True)
 
         self.translate_gui(main_window)
         QtCore.QMetaObject.connectSlotsByName(main_window)
