@@ -362,9 +362,9 @@ class MainWindow(object):
             self.update_ui_new_login()
             self.current_login = dialog.ui.logged_in_domain + " | " + dialog.ui.logged_in_user
 
+
     def update_ui_new_login(self):
         icons = Icons()
-        self.actionLogin.setEnabled(False)
         self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginUnlockedIcon))
         self.actionLogout.setEnabled(True)
         self.btnToot.setEnabled(True)
