@@ -2,8 +2,8 @@ Mastodome 0.2 (STILL IN DEV)
 * Ported to Python 3 and Qt 5
 * Fixed conflicting keyboard shortcuts
 * Main window can now be re-sized by users
+* Remembers previous logins and enables the user to switch between them
 * TODO: Posts toots with content warnings and differing privacy levels
-* TODO: Supports logins for more than one mastodon at a time
 * TODO: Shows full notification text
 * TODO: Highlights user interaction at the top of each toot in the stream
 * TODO: Collapses toots with content warnings in the stream
