@@ -22,11 +22,12 @@
 """
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from mastodon.Mastodon import MastodonError
 from config.translations import Translations
 from config.icons_pics import Icons, Pics
 from config import config
 from gui import login, about
-from rest import toots, fetch, api
+from rest import toots, fetch, api, credentials
 import validators
 
 
@@ -34,6 +35,7 @@ class MainWindow(object):
 
     def __init__(self, main_window):
         self.current_session = None
+        self.current_login = None
         self.config = config.Config()
         self.visibleStream = "home"
         pics = Pics()
@@ -157,6 +159,7 @@ class MainWindow(object):
         self.setup_top_menu()
         self.setup_buttons()
         self.setup_tootbox()
+        self.setup_login_list()
 
     def setup_top_menu(self):
         _translate = QtCore.QCoreApplication.translate
@@ -265,7 +268,7 @@ class MainWindow(object):
         self.cmbPrivacy.addItem(QtGui.QIcon(icons.cmbDirectMessageToot), privacy_options["direct-message"])
         self.cmbPrivacy.setEnabled(False)
 
-        self.listViewLoggedInAccounts.setEnabled(False)
+        self.listViewLoggedInAccounts.clicked.connect(self.switch_accounts)
 
     def check_toot_box(self):
         current_length = len(self.plainTextEditToot.toPlainText())
@@ -287,6 +290,51 @@ class MainWindow(object):
             self.lineEditCW.setEnabled(True)
             self.lineEditCW.setVisible(True)
 
+    def setup_login_list(self):
+        model = QtGui.QStandardItemModel(self.listViewLoggedInAccounts)
+        users_and_domains = api.get_existing_users_and_domains()
+        self.listViewLoggedInAccounts.setEnabled(False)
+        self.listViewLoggedInAccounts.reset()
+
+        if users_and_domains is not None:
+            self.listViewLoggedInAccounts.setEnabled(False)
+            self.listViewLoggedInAccounts.reset()
+
+            for domain, users in list(users_and_domains.items()):
+                for user in users:
+                    item = QtGui.QStandardItem()
+                    item.setText(domain + " | " + user)
+                    check_registered = api.Credentials(domain, user)
+                    if check_registered.is_client_registered():
+                        model.appendRow(item)
+                    else:
+                        check_registered.client_unregister()
+
+            self.listViewLoggedInAccounts.setModel(model)
+            self.listViewLoggedInAccounts.setEnabled(True)
+
+    def switch_accounts(self):
+        attempted_login = self.listViewLoggedInAccounts.currentIndex().data()
+
+        if attempted_login == self.current_login:
+            self.reload_panels()
+        else:
+            domain, user = attempted_login.replace(" ", "").split("|")
+            login_attempt = credentials.Credentials(domain, user)
+
+            if login_attempt.is_user_registered():
+                try:
+                    new_session = api.Session(domain, user)
+                    new_session.initialise_session("")
+                    self.current_session = new_session
+                    self.update_ui_new_login()
+                    self.current_login = attempted_login
+                except MastodonError as m:
+                    print(type(m))
+                    raise
+            else:
+                self.login_user()
+
     def display_about(self):
         about_dialog = QtWidgets.QDialog()
         about_dialog.ui = about.ui_dialog_about()
@@ -307,16 +355,19 @@ class MainWindow(object):
     def complete_login(self, dialog):
         self.current_session = dialog.ui.get_new_session()
         if self.current_session is not None:
-            self.actionLogin.setEnabled(False)
-            icons = Icons()
-            self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginUnlockedIcon))
-            self.actionLogout.setEnabled(True)
-            # TODO: Add login entry to listview here
-            self.btnToot.setEnabled(True)
-            self.plainTextEditToot.setEnabled(True)
-            self.plainTextEditToot.setFocus(True)
-            self.reload_panels()
-            self.enable_correct_stream_button()
+            self.setup_login_list()
+            self.update_ui_new_login()
+
+    def update_ui_new_login(self):
+        icons = Icons()
+        self.actionLogin.setEnabled(False)
+        self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginUnlockedIcon))
+        self.actionLogout.setEnabled(True)
+        self.btnToot.setEnabled(True)
+        self.plainTextEditToot.setEnabled(True)
+        self.plainTextEditToot.setFocus(True)
+        self.reload_panels()
+        self.enable_correct_stream_button()
 
     def cancelled_login(self):
         print("cancelled login triggered")
