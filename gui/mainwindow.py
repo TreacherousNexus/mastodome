@@ -318,6 +318,7 @@ class MainWindow(object):
 
         if attempted_login == self.current_login:
             self.reload_panels()
+            self.plainTextEditToot.setFocus(True)
         else:
             domain, user = attempted_login.replace(" ", "").split("|")
             login_attempt = credentials.Credentials(domain, user)
@@ -357,6 +358,7 @@ class MainWindow(object):
         if self.current_session is not None:
             self.setup_login_list()
             self.update_ui_new_login()
+            self.current_login = dialog.ui.logged_in_domain + " | " + dialog.ui.logged_in_user
 
     def update_ui_new_login(self):
         icons = Icons()
@@ -386,6 +388,7 @@ class MainWindow(object):
             existing_session.load_session(self.current_session)
             existing_session.clear_session()
             self.current_session = None
+            self.current_login = None
             self.actionLogout.setEnabled(False)
             self.actionLogin.setEnabled(True)
             icons = Icons()
