@@ -54,6 +54,13 @@ class Credentials:
                                                            website=self.config.APP_WEBSITE)
             self.credential_store.set_client_keys(self.domain, self.uname, client_id, client_secret)
 
+    def client_unregister(self):
+        if self.is_client_registered():
+            try:
+                self.credential_store.delete_client_keys(self.domain, self.uname)
+            except PasswordDeleteError:
+                raise Exception("Failed to delete client application credentials")
+
     def is_user_registered(self):
         return self.credential_store.get_user_token(self.domain, self.uname) is not None
 
