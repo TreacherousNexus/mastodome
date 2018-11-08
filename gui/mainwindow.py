@@ -483,7 +483,7 @@ class MainWindow(object):
                     image.load(fetch.get_image(boosted_toot.get_avatar()))
                     item.setText(boosted_toot.get_display_name() + " <" + boosted_toot.get_full_handle() + ">")
                     new_item.setText(boosted_toot.get_content().rstrip() + "\n\n" + lingo.load("stream_boost_fetched")
-                                     + ": " + toot.get_display_name())
+                                     + ": " + toot.get_display_name() + " <" + toot.get_full_handle() + ">")
                 elif toot.is_reply():
                     image.load(fetch.get_image(toot.get_avatar()))
                     item.setText(toot.get_display_name() + " <" + toot.get_full_handle() + ">")
