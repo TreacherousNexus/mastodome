@@ -55,6 +55,9 @@ class Toot:
             return self.user['username']
         return self.user['display_name']
 
+    def get_full_handle(self):
+        return self.user['acct']
+
     def is_boost(self):
         return self.toot['reblog'] is not None
 

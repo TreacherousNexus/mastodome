@@ -472,25 +472,30 @@ class MainWindow(object):
             stream_to_load.process()
             for timestamp, toot in list(stream_to_load.get_toots().items()):
                 item = QtGui.QStandardItem()
+                new_item = QtGui.QStandardItem()
                 icon = QtGui.QIcon()
                 image = QtGui.QImage()
+                title_font = item.font()
+                title_font.setBold(True)
+                item.setFont(title_font)
                 if toot.is_boost():
                     boosted_toot, boosted_timestamp = toot.get_boost_with_timestamp()
                     image.load(fetch.get_image(boosted_toot.get_avatar()))
-                    output = boosted_toot.get_display_name() + " " + lingo.load("stream_toot_fetched") + ":\n\"" \
-                             + boosted_toot.get_content().rstrip() + "\""
-                    item.setText(output + "\n" + lingo.load("stream_boost_fetched") + ": " + toot.get_display_name())
+                    item.setText(boosted_toot.get_display_name() + " (" + boosted_toot.get_full_handle() + ")")
+                    new_item.setText(boosted_toot.get_content().rstrip() + "\n\n" + lingo.load("stream_boost_fetched")
+                                     + ": " + toot.get_display_name())
                 elif toot.is_reply():
                     image.load(fetch.get_image(toot.get_avatar()))
-                    item.setText(toot.get_display_name() + " " + lingo.load("stream_reply_fetched") + ":\n\""
-                                 + toot.get_content().rstrip() + "\"")
+                    item.setText(toot.get_display_name() + " (" + toot.get_full_handle() + ")")
+                    new_item.setText(toot.get_content().rstrip())
                 else:
                     image.load(fetch.get_image(toot.get_avatar()))
-                    item.setText(toot.get_display_name() + " " + lingo.load("stream_toot_fetched") + ":\n\""
-                                 + toot.get_content().rstrip() + "\"")
+                    item.setText(toot.get_display_name() + " (" + toot.get_full_handle() + ")")
+                    new_item.setText(toot.get_content().rstrip())
                 icon.addPixmap(QtGui.QPixmap(image), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 item.setIcon(icon)
                 model.appendRow(item)
+                model.appendRow(new_item)
             self.listViewToots.setModel(model)
 
     def load_stream_notifications(self):
