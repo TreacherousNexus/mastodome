@@ -79,5 +79,30 @@ class Toot:
     def get_content(self):
         h = html2text.HTML2Text()
         h.ignore_links = True
-        h.ignore_images = True
         return h.handle(self.toot['content'])
+
+    def has_media(self):
+        return any(self.toot['media_attachments'])
+
+    def get_media(self):
+        return self.toot['media_attachments']
+
+    def is_media_sensitive(self):
+        if self.toot['sensitive'] is not None:
+            return self.toot['sensitive']
+        return False
+
+    def has_emoji(self):
+        return self.toot['emojis'] is not None
+
+    def get_emoji(self):
+        return self.toot['emojis']
+
+    def has_cw(self):
+        return self.toot['spoiler_text'] is not None
+
+    def get_cw(self):
+        return self.toot['spoiler_text']
+
+    def get_timestamp(self):
+        return self.toot['created_at']
