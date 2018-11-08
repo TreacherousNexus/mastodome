@@ -2,7 +2,7 @@ Mastodome 0.2 (STILL IN DEV)
 * Runs on Python 3 and Qt 5
 * Fixes broken keyboard shortcuts
 * Enables users to resize the main window
-* Remembers previous logins and enables the user to switch between them
+* Remembers previous logins and supports switching between them
 * Highlights user interaction at the top of each toot in the stream
 * TODO: Fetches more toots when you scroll to the bottom of the stream
 * TODO: Collapses toots with content warnings in the stream
