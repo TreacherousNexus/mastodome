@@ -476,6 +476,7 @@ class MainWindow(object):
             for timestamp in toot_stream:
                 toot = toot_stream[timestamp]
                 image_alt_text = ""
+                content_warning = ""
                 if toot.has_media():
                     image_alt_text = "\n"
                     for toot_image in toot.get_media():
@@ -483,6 +484,8 @@ class MainWindow(object):
                         if description is None:
                             description = "Missing alt text"
                         image_alt_text += "\n" + toot_image['type'] + ": " + description
+                if toot.has_cw():
+                    content_warning = "CW: " + toot.get_cw() + "\n\n"
                 item = QtGui.QStandardItem()
                 new_item = QtGui.QStandardItem()
                 icon = QtGui.QIcon()
@@ -499,11 +502,13 @@ class MainWindow(object):
                             if description is None:
                                 description = "Missing alt text"
                             image_alt_text += "\n" + boosted_image['type'] + ": " + description
+                    if boosted_toot.has_cw():
+                        content_warning = "=== CW: " + boosted_toot.get_cw() + " ===\n\n"
                     image.load(fetch.get_image(boosted_toot.get_avatar()))
                     item.setText(boosted_toot.get_display_name()
                                  + " <" + boosted_toot.get_full_handle() + ">"
                                  + " [" + boosted_toot.get_timestamp() + "]")
-                    new_item.setText(boosted_toot.get_content().rstrip() + image_alt_text
+                    new_item.setText(content_warning + boosted_toot.get_content().rstrip() + image_alt_text
                                      + "\n\n" + lingo.load("stream_boost_fetched")
                                      + ": " + toot.get_display_name() + " <" + toot.get_full_handle() + ">"
                                      + " (" + toot.get_timestamp() + ")")
@@ -512,13 +517,13 @@ class MainWindow(object):
                     item.setText(toot.get_display_name()
                                  + " <" + toot.get_full_handle() + ">"
                                  + " [" + toot.get_timestamp() + "]")
-                    new_item.setText(toot.get_content().rstrip() + image_alt_text)
+                    new_item.setText(content_warning + toot.get_content().rstrip() + image_alt_text)
                 else:
                     image.load(fetch.get_image(toot.get_avatar()))
                     item.setText(toot.get_display_name()
                                  + " <" + toot.get_full_handle() + ">"
                                  + " [" + toot.get_timestamp() + "]")
-                    new_item.setText(toot.get_content().rstrip() + image_alt_text)
+                    new_item.setText(content_warning + toot.get_content().rstrip() + image_alt_text)
                 icon.addPixmap(QtGui.QPixmap(image), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 item.setIcon(icon)
                 model.appendRow(item)

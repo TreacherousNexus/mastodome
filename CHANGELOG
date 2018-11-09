@@ -6,7 +6,7 @@ Mastodome 0.2 (STILL IN DEV)
 * Highlights user interaction at the top of each toot in the stream
 * Displays alt text for images in toots
 * Displays timestamp for when toots are posted (and boosted)
-* TODO: Shows content warnings as subjects in the stream
+* Shows content warnings as subjects in the stream
 * TODO: Fetches more toots when you scroll to the bottom of the stream
 * TODO: Shows full notification text
 * TODO: Posts toots with content warnings and differing privacy levels

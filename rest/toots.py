@@ -100,7 +100,7 @@ class Toot:
         return self.toot['emojis']
 
     def has_cw(self):
-        return self.toot['spoiler_text'] is not None
+        return self.toot['spoiler_text'] is not ""
 
     def get_cw(self):
         return self.toot['spoiler_text']
