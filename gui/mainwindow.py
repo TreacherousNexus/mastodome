@@ -485,7 +485,7 @@ class MainWindow(object):
                             description = "Missing alt text"
                         image_alt_text += "\n" + toot_image['type'] + ": " + description
                 if toot.has_cw():
-                    content_warning = "CW: " + toot.get_cw() + "\n\n"
+                    content_warning = "=== CW: " + toot.get_cw() + " ===\n\n"
                 item = QtGui.QStandardItem()
                 new_item = QtGui.QStandardItem()
                 icon = QtGui.QIcon()
