@@ -496,17 +496,24 @@ class MainWindow(object):
                                 description = "Missing alt text"
                             image_alt_text += "\n" + boosted_image['type'] + ": " + description
                     image.load(fetch.get_image(boosted_toot.get_avatar()))
-                    item.setText(boosted_toot.get_display_name() + " <" + boosted_toot.get_full_handle() + ">")
+                    item.setText(boosted_toot.get_display_name()
+                                 + " <" + boosted_toot.get_full_handle() + ">"
+                                 + " [" + boosted_toot.get_timestamp() + "]")
                     new_item.setText(boosted_toot.get_content().rstrip() + image_alt_text
                                      + "\n\n" + lingo.load("stream_boost_fetched")
-                                     + ": " + toot.get_display_name() + " <" + toot.get_full_handle() + ">")
+                                     + ": " + toot.get_display_name() + " <" + toot.get_full_handle() + ">"
+                                     + " (" + toot.get_timestamp() + ")")
                 elif toot.is_reply():
                     image.load(fetch.get_image(toot.get_avatar()))
-                    item.setText(toot.get_display_name() + " <" + toot.get_full_handle() + ">")
+                    item.setText(toot.get_display_name()
+                                 + " <" + toot.get_full_handle() + ">"
+                                 + " [" + toot.get_timestamp() + "]")
                     new_item.setText(toot.get_content().rstrip() + image_alt_text)
                 else:
                     image.load(fetch.get_image(toot.get_avatar()))
-                    item.setText(toot.get_display_name() + " <" + toot.get_full_handle() + ">")
+                    item.setText(toot.get_display_name()
+                                 + " <" + toot.get_full_handle() + ">"
+                                 + " [" + toot.get_timestamp() + "]")
                     new_item.setText(toot.get_content().rstrip() + image_alt_text)
                 icon.addPixmap(QtGui.QPixmap(image), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 item.setIcon(icon)

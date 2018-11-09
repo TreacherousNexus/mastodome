@@ -25,6 +25,7 @@
 import collections
 import html2text
 from rest import fetch
+from datetime import datetime, timezone, timedelta
 
 
 class Toots:
@@ -105,4 +106,12 @@ class Toot:
         return self.toot['spoiler_text']
 
     def get_timestamp(self):
-        return self.toot['created_at']
+        time_delta = datetime.now(timezone.utc) - self.toot['created_at'].astimezone(timezone.utc)
+        if time_delta > timedelta(days=1):
+            return str(int(round(time_delta.total_seconds()/86400))) + "d"
+        elif time_delta > timedelta(hours=1):
+            return str(int(round(time_delta.total_seconds()/3600))) + "h"
+        elif time_delta > timedelta(minutes=1):
+            return str(int(round(time_delta.total_seconds()/60))) + "m"
+        else:
+            return str(int(round(time_delta.total_seconds()))) + "s"
