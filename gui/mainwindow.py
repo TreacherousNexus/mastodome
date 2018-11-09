@@ -29,6 +29,7 @@ from config import config
 from gui import login, about
 from rest import toots, fetch, api, credentials
 import validators
+from collections import OrderedDict
 
 
 class MainWindow(object):
@@ -470,7 +471,10 @@ class MainWindow(object):
             model = QtGui.QStandardItemModel(self.listViewToots)
             stream_to_load = toots.Toots(toot_stream)
             stream_to_load.process()
-            for timestamp, toot in list(stream_to_load.get_toots().items()):
+            toot_stream = OrderedDict(stream_to_load.get_toots().items())
+
+            for timestamp in toot_stream:
+                toot = toot_stream[timestamp]
                 image_alt_text = ""
                 if toot.has_media():
                     image_alt_text = "\n"
