@@ -107,7 +107,9 @@ class Toot:
 
     def get_timestamp(self):
         time_delta = datetime.now(timezone.utc) - self.toot['created_at'].astimezone(timezone.utc)
-        if time_delta > timedelta(days=1):
+        if time_delta > timedelta(days=14):
+            return self.toot['created_at'].strftime("%d %b '%y")
+        elif time_delta > timedelta(days=1):
             return str(int(round(time_delta.total_seconds()/86400))) + "d"
         elif time_delta > timedelta(hours=1):
             return str(int(round(time_delta.total_seconds()/3600))) + "h"
