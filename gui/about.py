@@ -27,12 +27,6 @@ from config.icons_pics import Icons, Pics
 from config import config
 
 try:
-    _fromUtf8 = QtCore.QString.fromUtf8
-except AttributeError:
-    def _fromUtf8(s):
-        return s
-
-try:
     _encoding = QtWidgets.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
         return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
@@ -42,7 +36,7 @@ except AttributeError:
 
 class ui_dialog_about(object):
     def setupUi(self, DialogAbout):
-        DialogAbout.setObjectName(_fromUtf8("DialogAbout"))
+        DialogAbout.setObjectName("DialogAbout")
         DialogAbout.resize(400, 446)
         icons = Icons()
         DialogAbout.setWindowIcon(QtGui.QIcon(icons.actionAboutIcon))
@@ -55,7 +49,7 @@ class ui_dialog_about(object):
         DialogAbout.setMaximumSize(QtCore.QSize(400, 446))
         self.lblLogo = QtWidgets.QLabel(DialogAbout)
         self.lblLogo.setGeometry(QtCore.QRect(140, 70, 121, 20))
-        self.lblLogo.setObjectName(_fromUtf8("lblLogo"))
+        self.lblLogo.setObjectName("lblLogo")
         self.lblAppVersion = QtWidgets.QLabel(DialogAbout)
         self.lblAppVersion.setGeometry(QtCore.QRect(10, 160, 381, 41))
         font = QtGui.QFont()
@@ -66,12 +60,12 @@ class ui_dialog_about(object):
         self.lblAppVersion.setTextFormat(QtCore.Qt.RichText)
         self.lblAppVersion.setScaledContents(False)
         self.lblAppVersion.setAlignment(QtCore.Qt.AlignCenter)
-        self.lblAppVersion.setObjectName(_fromUtf8("lblAppVersion"))
+        self.lblAppVersion.setObjectName("lblAppVersion")
         self.lblAppDesc = QtWidgets.QLabel(DialogAbout)
         self.lblAppDesc.setGeometry(QtCore.QRect(10, 210, 381, 51))
         self.lblAppDesc.setAlignment(QtCore.Qt.AlignCenter)
         self.lblAppDesc.setWordWrap(True)
-        self.lblAppDesc.setObjectName(_fromUtf8("lblAppDesc"))
+        self.lblAppDesc.setObjectName("lblAppDesc")
         self.lblCopyright = QtWidgets.QLabel(DialogAbout)
         self.lblCopyright.setGeometry(QtCore.QRect(10, 270, 381, 51))
         font = QtGui.QFont()
@@ -79,7 +73,7 @@ class ui_dialog_about(object):
         self.lblCopyright.setFont(font)
         self.lblCopyright.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.lblCopyright.setWordWrap(True)
-        self.lblCopyright.setObjectName(_fromUtf8("lblCopyright"))
+        self.lblCopyright.setObjectName("lblCopyright")
 
         self.retranslate_ui(DialogAbout)
         QtCore.QMetaObject.connectSlotsByName(DialogAbout)
