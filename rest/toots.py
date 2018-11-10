@@ -61,12 +61,11 @@ class Toot:
     def is_boost(self):
         return self.toot['reblog'] is not None
 
-    def get_boost_with_timestamp(self):
+    def get_boost(self):
         if self.is_boost():
             boosted_toot = self.toot['reblog']
             boosted_toot_author = boosted_toot['account']
-            timestamp = boosted_toot['created_at']
-            return Toot(boosted_toot_author, boosted_toot), timestamp
+            return Toot(boosted_toot_author, boosted_toot)
 
     def is_reply(self):
         return self.toot['in_reply_to_id'] is not None or \

@@ -535,8 +535,7 @@ class MainWindow(object):
                 title_font.setBold(True)
                 item.setFont(title_font)
                 if toot.is_boost():
-                    boosted_toot, \
-                        boosted_timestamp = toot.get_boost_with_timestamp()
+                    boosted_toot = toot.get_boost()
                     if boosted_toot.has_media():
                         image_alt_text = "\n"
                         for boosted_image in boosted_toot.get_media():
