@@ -43,21 +43,26 @@ class MainWindow(object):
         main_window.setObjectName("MainWindow")
         main_window.setWindowModality(QtCore.Qt.NonModal)
         main_window.resize(1153, 685)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+                QtWidgets.QSizePolicy.Preferred,
+                QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(main_window.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+                main_window.sizePolicy().hasHeightForWidth())
         main_window.setSizePolicy(sizePolicy)
         self.centralwidget = QtWidgets.QWidget(main_window)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.verticalLayoutNewToot = QtWidgets.QVBoxLayout()
-        self.verticalLayoutNewToot.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
+        self.verticalLayoutNewToot.setSizeConstraint(
+                QtWidgets.QLayout.SetDefaultConstraint)
         self.verticalLayoutNewToot.setContentsMargins(-1, -1, 0, -1)
         self.verticalLayoutNewToot.setObjectName("verticalLayoutNewToot")
         self.horizontalLayoutStreamButtons = QtWidgets.QHBoxLayout()
-        self.horizontalLayoutStreamButtons.setObjectName("horizontalLayoutStreamButtons")
+        self.horizontalLayoutStreamButtons.setObjectName(
+                    "horizontalLayoutStreamButtons")
         self.btnHome = QtWidgets.QPushButton(self.centralwidget)
         self.btnHome.setObjectName("btnHome")
         self.horizontalLayoutStreamButtons.addWidget(self.btnHome)
@@ -67,12 +72,14 @@ class MainWindow(object):
         self.btnPublic = QtWidgets.QPushButton(self.centralwidget)
         self.btnPublic.setObjectName("btnPublic")
         self.horizontalLayoutStreamButtons.addWidget(self.btnPublic)
-        self.verticalLayoutNewToot.addLayout(self.horizontalLayoutStreamButtons)
+        self.verticalLayoutNewToot.addLayout(
+                self.horizontalLayoutStreamButtons)
         self.plainTextEditToot = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEditToot.setObjectName("plainTextEditToot")
         self.verticalLayoutNewToot.addWidget(self.plainTextEditToot)
         self.horizontalLayoutTooButtons = QtWidgets.QHBoxLayout()
-        self.horizontalLayoutTooButtons.setObjectName("horizontalLayoutTooButtons")
+        self.horizontalLayoutTooButtons.setObjectName(
+                "horizontalLayoutTooButtons")
         self.btnCW = QtWidgets.QPushButton(self.centralwidget)
         self.btnCW.setObjectName("btnCW")
         self.horizontalLayoutTooButtons.addWidget(self.btnCW)
@@ -98,7 +105,8 @@ class MainWindow(object):
         self.verticalLayoutViewToots.addWidget(self.listViewToots)
         self.horizontalLayout_4.addLayout(self.verticalLayoutViewToots)
         self.verticalLayoutNotifications = QtWidgets.QVBoxLayout()
-        self.verticalLayoutNotifications.setObjectName("verticalLayoutNotifications")
+        self.verticalLayoutNotifications.setObjectName(
+                "verticalLayoutNotifications")
         self.listViewNotifications = QtWidgets.QListView(self.centralwidget)
         self.listViewNotifications.setObjectName("listViewNotifications")
         self.listViewNotifications.setAlternatingRowColors(True)
@@ -142,11 +150,14 @@ class MainWindow(object):
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
-        self.listViewToots.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.listViewToots.setEditTriggers(
+                QtWidgets.QAbstractItemView.NoEditTriggers)
         self.listViewToots.setWordWrap(True)
-        self.listViewNotifications.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.listViewNotifications.setEditTriggers(
+                QtWidgets.QAbstractItemView.NoEditTriggers)
         self.listViewNotifications.setWordWrap(True)
-        self.listViewLoggedInAccounts.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.listViewLoggedInAccounts.setEditTriggers(
+                QtWidgets.QAbstractItemView.NoEditTriggers)
         self.listViewLoggedInAccounts.setWordWrap(True)
 
         self.translate_gui(main_window)
@@ -154,7 +165,10 @@ class MainWindow(object):
 
     def translate_gui(self, main_window):
         lingo = Translations()
-        main_title = lingo.load("MainWindow") + self.config.APP_NAME + " " + self.config.APP_VERSION
+        main_title = lingo.load("MainWindow") \
+            + self.config.APP_NAME \
+            + " " \
+            + self.config.APP_VERSION
         _translate = QtCore.QCoreApplication.translate
         main_window.setWindowTitle(_translate("MainWindow", main_title))
 
@@ -169,48 +183,63 @@ class MainWindow(object):
         lingo = Translations()
         icons = Icons()
 
-        self.menuFile.setTitle(_translate("MainWindow", lingo.load("menuFile")))
-        self.menuEdit.setTitle(_translate("MainWindow", lingo.load("menuEdit")))
-        self.menuHelp.setTitle(_translate("MainWindow", lingo.load("menuHelp")))
+        self.menuFile.setTitle(_translate("MainWindow",
+                                          lingo.load("menuFile")))
+        self.menuEdit.setTitle(_translate("MainWindow",
+                                          lingo.load("menuEdit")))
+        self.menuHelp.setTitle(_translate("MainWindow",
+                                          lingo.load("menuHelp")))
 
-        self.actionLogin.setText(_translate("MainWindow", lingo.load("actionLogin")))
+        self.actionLogin.setText(_translate("MainWindow",
+                                            lingo.load("actionLogin")))
         self.actionLogin.setShortcut(lingo.load("actionLoginShortcut"))
         self.actionLogin.setStatusTip(lingo.load("actionLoginTooltip"))
         self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginLockedIcon))
         self.actionLogin.triggered.connect(self.login_user)
 
-        self.actionLogout.setText(_translate("MainWindow", lingo.load("actionLogout")))
+        self.actionLogout.setText(_translate("MainWindow",
+                                             lingo.load("actionLogout")))
         self.actionLogout.setShortcut(lingo.load("actionLogoutShortcut"))
         self.actionLogout.setStatusTip(lingo.load("actionLogoutTooltip"))
         self.actionLogout.setIcon(QtGui.QIcon(icons.actionLogoutIcon))
         self.actionLogout.setEnabled(False)
         self.actionLogout.triggered.connect(self.logoff_user)
 
-        self.actionExit.setText(_translate("MainWindow", lingo.load("actionExit")))
+        self.actionExit.setText(_translate("MainWindow",
+                                           lingo.load("actionExit")))
         self.actionExit.setShortcut(lingo.load("actionExitShortcut"))
-        self.actionExit.setStatusTip(lingo.load("actionExitTooltip") + " " + self.config.APP_NAME)
+        self.actionExit.setStatusTip(lingo.load("actionExitTooltip")
+                                     + " "
+                                     + self.config.APP_NAME)
         self.actionExit.setIcon(QtGui.QIcon(icons.actionExiticon))
         self.actionExit.triggered.connect(QtGui.QGuiApplication.quit)
 
-        self.actionRefresh.setText(_translate("MainWindow", lingo.load("actionRefresh")))
+        self.actionRefresh.setText(_translate("MainWindow",
+                                              lingo.load("actionRefresh")))
         self.actionRefresh.setShortcut(lingo.load("actionRefreshShortcut"))
         self.actionRefresh.setStatusTip(lingo.load("actionRefreshTooltip"))
         self.actionRefresh.setIcon(QtGui.QIcon(icons.actionRefreshIcon))
         self.actionRefresh.triggered.connect(self.reload_panels)
 
-        self.actionPreferences.setText(_translate("MainWindow", lingo.load("actionPreferences")))
-        self.actionPreferences.setStatusTip(lingo.load("actionPreferencesTooltip"))
+        self.actionPreferences.setText(_translate("MainWindow",
+                                                  lingo.load(
+                                                        "actionPreferences")))
+        self.actionPreferences.setStatusTip(lingo.load(
+                    "actionPreferencesTooltip"))
         self.actionPreferences.setIcon(QtGui.QIcon(icons.actionPrefIcon))
         self.actionPreferences.setEnabled(False)
 
-        self.actionHelp.setText(_translate("MainWindow", lingo.load("actionHelp")))
+        self.actionHelp.setText(_translate("MainWindow",
+                                           lingo.load("actionHelp")))
         self.actionHelp.setShortcut(lingo.load("actionHelpShortcut"))
         self.actionHelp.setStatusTip(lingo.load("actionHelpTooltip"))
         self.actionHelp.setIcon(QtGui.QIcon(icons.actionHelpIcon))
         self.actionHelp.setEnabled(False)
 
-        self.actionAbout.setText(_translate("MainWindow", lingo.load("actionAbout")))
-        self.actionAbout.setStatusTip(lingo.load("actionAboutTooltip") + " " + self.config.APP_NAME)
+        self.actionAbout.setText(_translate("MainWindow",
+                                            lingo.load("actionAbout")))
+        self.actionAbout.setStatusTip(
+                lingo.load("actionAboutTooltip") + " " + self.config.APP_NAME)
         self.actionAbout.setIcon(QtGui.QIcon(icons.actionAboutIcon))
         self.actionAbout.triggered.connect(self.display_about)
 
@@ -228,14 +257,16 @@ class MainWindow(object):
 
         self.btnLocal.setShortcut(lingo.load("btnLocalShortcut"))
         self.btnLocal.setStatusTip(lingo.load("btnLocalTooltip")
-                                   + " (" + lingo.load("btnLocalShortcut") + ")")
+                                   + " (" + lingo.load("btnLocalShortcut")
+                                   + ")")
         self.btnLocal.setIcon(QtGui.QIcon(icons.btnLocalIcon))
         self.btnLocal.clicked.connect(self.load_stream_local)
         self.btnLocal.setEnabled(False)
 
         self.btnPublic.setShortcut(lingo.load("btnPublicShortcut"))
         self.btnPublic.setStatusTip(lingo.load("btnPublicTooltip")
-                                    + " (" + lingo.load("btnPublicShortcut") + ")")
+                                    + " (" + lingo.load("btnPublicShortcut")
+                                    + ")")
         self.btnPublic.setIcon(QtGui.QIcon(icons.btnPublicIcon))
         self.btnPublic.clicked.connect(self.load_stream_public)
         self.btnPublic.setEnabled(False)
@@ -265,10 +296,17 @@ class MainWindow(object):
 
         privacy_options = dict(lingo.load("cmbPrivacy"))
         self.cmbPrivacy.clear()
-        self.cmbPrivacy.addItem(QtGui.QIcon(icons.cmbPublicToot), privacy_options["public"])
-        self.cmbPrivacy.addItem(QtGui.QIcon(icons.cmbUnlistedToot), privacy_options["unlisted"])
-        self.cmbPrivacy.addItem(QtGui.QIcon(icons.cmbFollowerOnlyToot), privacy_options["followers-only"])
-        self.cmbPrivacy.addItem(QtGui.QIcon(icons.cmbDirectMessageToot), privacy_options["direct-message"])
+        self.cmbPrivacy.addItem(
+                QtGui.QIcon(icons.cmbPublicToot), privacy_options["public"])
+        self.cmbPrivacy.addItem(
+                QtGui.QIcon(icons.cmbUnlistedToot),
+                    privacy_options["unlisted"])
+        self.cmbPrivacy.addItem(
+                QtGui.QIcon(icons.cmbFollowerOnlyToot),
+                privacy_options["followers-only"])
+        self.cmbPrivacy.addItem(
+                QtGui.QIcon(icons.cmbDirectMessageToot),
+                privacy_options["direct-message"])
         self.cmbPrivacy.setEnabled(False)
 
         self.listViewLoggedInAccounts.clicked.connect(self.switch_accounts)
@@ -363,8 +401,8 @@ class MainWindow(object):
         if self.current_session is not None:
             self.setup_login_list()
             self.update_ui_new_login()
-            self.current_login = dialog.ui.logged_in_domain + " | " + dialog.ui.logged_in_user
-
+            self.current_login = dialog.ui.logged_in_domain
+            + " | " + dialog.ui.logged_in_user
 
     def update_ui_new_login(self):
         icons = Icons()
@@ -388,8 +426,9 @@ class MainWindow(object):
 
     def logoff_user(self):
         if self.current_session is not None:
-            existing_session = api.Session(self.current_session.get_session_domain(),
-                                           self.current_session.get_session_username())
+            existing_session = api.Session(
+                self.current_session.get_session_domain(),
+                self.current_session.get_session_username())
             existing_session.load_session(self.current_session)
             existing_session.clear_session()
             self.current_session = None
@@ -413,7 +452,8 @@ class MainWindow(object):
                 self.load_stream_public()
 
     def reset_panels(self):
-        notifications_model = QtGui.QStandardItemModel(self.listViewNotifications)
+        notifications_model = QtGui.QStandardItemModel(
+            self.listViewNotifications)
         toots_model = QtGui.QStandardItemModel(self.listViewToots)
         self.listViewNotifications.setModel(notifications_model)
         self.listViewToots.setModel(toots_model)
@@ -442,7 +482,8 @@ class MainWindow(object):
     def send_toot(self):
         if self.current_session is not None:
             potential_toot = str(self.plainTextEditToot.toPlainText())
-            if validators.length(potential_toot, max=self.config.GUI_TOOT_MAX_SIZE_CHARS):
+            if validators.length(potential_toot,
+                                 max=self.config.GUI_TOOT_MAX_SIZE_CHARS):
                 self.current_session.send_toot(potential_toot)
                 self.plainTextEditToot.clear()
             else:
@@ -482,7 +523,8 @@ class MainWindow(object):
                         description = toot_image['description']
                         if description is None:
                             description = "Missing alt text"
-                        image_alt_text += "\n" + toot_image['type'] + ": " + description
+                        image_alt_text += "\n" + toot_image['type'] \
+                                          + ": " + description
                 if toot.has_cw():
                     content_warning = "=== CW: " + toot.get_cw() + " ===\n\n"
                 item = QtGui.QStandardItem()
@@ -493,37 +535,48 @@ class MainWindow(object):
                 title_font.setBold(True)
                 item.setFont(title_font)
                 if toot.is_boost():
-                    boosted_toot, boosted_timestamp = toot.get_boost_with_timestamp()
+                    boosted_toot, \
+                        boosted_timestamp = toot.get_boost_with_timestamp()
                     if boosted_toot.has_media():
                         image_alt_text = "\n"
                         for boosted_image in boosted_toot.get_media():
                             description = boosted_image['description']
                             if description is None:
                                 description = "Missing alt text"
-                            image_alt_text += "\n" + boosted_image['type'] + ": " + description
+                            image_alt_text += "\n" + boosted_image['type'] \
+                                + ": " + description
                     if boosted_toot.has_cw():
-                        content_warning = "=== CW: " + boosted_toot.get_cw() + " ===\n\n"
+                        content_warning = "=== CW: " + boosted_toot.get_cw() \
+                            + " ===\n\n"
                     image.load(fetch.get_image(boosted_toot.get_avatar()))
                     item.setText(boosted_toot.get_display_name()
                                  + " <" + boosted_toot.get_full_handle() + ">"
                                  + " [" + boosted_toot.get_timestamp() + "]")
-                    new_item.setText(content_warning + boosted_toot.get_content().rstrip() + image_alt_text
-                                     + "\n\n" + lingo.load("stream_boost_fetched")
-                                     + ": " + toot.get_display_name() + " <" + toot.get_full_handle() + ">"
-                                     + " (" + toot.get_timestamp() + ")")
+                    new_item.setText(
+                        content_warning
+                        + boosted_toot.get_content().rstrip() + image_alt_text
+                        + "\n\n" + lingo.load("stream_boost_fetched")
+                        + ": " + toot.get_display_name()
+                        + " <" + toot.get_full_handle() + ">"
+                        + " (" + toot.get_timestamp() + ")")
                 elif toot.is_reply():
                     image.load(fetch.get_image(toot.get_avatar()))
                     item.setText(toot.get_display_name()
                                  + " <" + toot.get_full_handle() + ">"
                                  + " [" + toot.get_timestamp() + "]")
-                    new_item.setText(content_warning + toot.get_content().rstrip() + image_alt_text)
+                    new_item.setText(content_warning
+                                     + toot.get_content().rstrip()
+                                     + image_alt_text)
                 else:
                     image.load(fetch.get_image(toot.get_avatar()))
                     item.setText(toot.get_display_name()
                                  + " <" + toot.get_full_handle() + ">"
                                  + " [" + toot.get_timestamp() + "]")
-                    new_item.setText(content_warning + toot.get_content().rstrip() + image_alt_text)
-                icon.addPixmap(QtGui.QPixmap(image), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                    new_item.setText(content_warning
+                                     + toot.get_content().rstrip()
+                                     + image_alt_text)
+                icon.addPixmap(QtGui.QPixmap(image),
+                               QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 item.setIcon(icon)
                 model.appendRow(item)
                 model.appendRow(new_item)
@@ -538,17 +591,25 @@ class MainWindow(object):
             for timestamp, notification in list(notifications.items()):
                 item = QtGui.QStandardItem()
                 if notification.n_type == "follow":
-                    item.setText(notification.get_display_name() + " " + lingo.load("notify_follow") + ".")
+                    item.setText(notification.get_display_name() + " "
+                                 + lingo.load("notify_follow") + ".")
                 elif notification.n_type == "reblog":
-                    item.setText(notification.get_display_name() + " " + lingo.load("notify_reblog") + " " + notification.status['uri'])
+                    item.setText(notification.get_display_name() + " "
+                                 + lingo.load("notify_reblog") + " "
+                                 + notification.status['uri'])
                 elif notification.n_type == "favourite":
-                    item.setText(notification.get_display_name() + " " + lingo.load("notify_fav") + " " + notification.status['uri'])
+                    item.setText(notification.get_display_name() + " "
+                                 + lingo.load("notify_fav") + " "
+                                 + notification.status['uri'])
                 elif notification.n_type == "mention":
-                    item.setText(notification.get_display_name() + " " + lingo.load("notify_mention") + " " + notification.status['uri'])
+                    item.setText(notification.get_display_name() + " "
+                                 + lingo.load("notify_mention") + " "
+                                 + notification.status['uri'])
                 icon = QtGui.QIcon()
                 image = QtGui.QImage()
                 image.load(fetch.get_image(notification.get_avatar()))
-                icon.addPixmap(QtGui.QPixmap(image), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                icon.addPixmap(QtGui.QPixmap(image),
+                               QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 item.setIcon(icon)
                 model.appendRow(item)
             self.listViewNotifications.setModel(model)

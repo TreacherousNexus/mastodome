@@ -26,13 +26,6 @@ from config.translations import Translations
 from config.icons_pics import Icons, Pics
 from config import config
 
-try:
-    _encoding = QtWidgets.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtWidgets.QApplication.translate(context, text, disambig)
 
 class ui_dialog_about(object):
     def setupUi(self, DialogAbout):
@@ -40,10 +33,12 @@ class ui_dialog_about(object):
         DialogAbout.resize(400, 446)
         icons = Icons()
         DialogAbout.setWindowIcon(QtGui.QIcon(icons.actionAboutIcon))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred,
+                                           QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(DialogAbout.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+                                DialogAbout.sizePolicy().hasHeightForWidth())
         DialogAbout.setSizePolicy(sizePolicy)
         DialogAbout.setMinimumSize(QtCore.QSize(400, 446))
         DialogAbout.setMaximumSize(QtCore.QSize(400, 446))
@@ -71,7 +66,9 @@ class ui_dialog_about(object):
         font = QtGui.QFont()
         font.setPointSize(9)
         self.lblCopyright.setFont(font)
-        self.lblCopyright.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.lblCopyright.setAlignment(
+                                    QtCore.Qt.AlignHCenter
+                                    | QtCore.Qt.AlignTop)
         self.lblCopyright.setWordWrap(True)
         self.lblCopyright.setObjectName("lblCopyright")
 
@@ -82,23 +79,36 @@ class ui_dialog_about(object):
         lingo = Translations()
         pics = Pics()
         this_config = config.Config()
-        DialogAbout.setWindowTitle(_translate("DialogAbout", lingo.load("DialogAbout")
+        _translate = QtCore.QCoreApplication.translate
+        DialogAbout.setWindowTitle(_translate("DialogAbout",
+                                              lingo.load("DialogAbout")
                                               + " "
                                               + this_config.APP_NAME, None))
-        self.lblAppVersion.setText(_translate("DialogAbout", this_config.APP_NAME
+        self.lblAppVersion.setText(_translate("DialogAbout",
+                                              this_config.APP_NAME
                                               + " "
                                               + this_config.APP_VERSION, None))
-        self.lblAppDesc.setText(_translate("DialogAbout", this_config.APP_NAME + " " + lingo.load("lblAppDesc"), None))
-        self.lblCopyright.setText(_translate("DialogAbout", "<html><head/><body><p align=\"center\">"
+        self.lblAppDesc.setText(_translate("DialogAbout",
+                                           this_config.APP_NAME
+                                           + " " + lingo.load("lblAppDesc"),
+                                           None))
+        self.lblCopyright.setText(_translate("DialogAbout",
+                                             "<html><head/><body>"
+                                             + "<p align=\"center\">"
                                              + lingo.load("lblCopyright")
                                              + "<br/><a href=\""
                                              + this_config.APP_WEBSITE
-                                             + "\"><span style=\" text-decoration: underline; color:#0000ff;\">"
+                                             + "\"><span style=\""
+                                             + " text-decoration: underline;"
+                                             + " color:#0000ff;\">"
                                              + this_config.APP_WEBSITE
-                                             + "</span></a></p></body></html>", None))
+                                             + "</span></a></p></body></html>",
+                                             None))
 
         self.lblLogo.resize(250, 250)
-        mastodome_mascot = QtGui.QPixmap(pics.aboutMascoutImg).scaled(self.lblLogo.size())
+        mastodome_mascot = QtGui.QPixmap(
+                                pics.aboutMascoutImg).scaled(
+                                    self.lblLogo.size())
         self.lblLogo.setPixmap(mastodome_mascot)
         self.lblLogo.move(75, 20)
         self.lblAppVersion.move(10, 280)

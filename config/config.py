@@ -21,7 +21,6 @@
 """
 
 
-
 class Config:
     def __init__(self):
         self.GUI_LANG = "en"

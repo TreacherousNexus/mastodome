@@ -29,14 +29,6 @@ from rest.credentials import Credentials
 from rest import api
 import validators
 
-try:
-    _encoding = QtWidgets.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtWidgets.QApplication.translate(context, text, disambig)
-
 
 class ui_login_dialog(object):
 
@@ -54,35 +46,54 @@ class ui_login_dialog(object):
         self.buttonBox = QtWidgets.QDialogButtonBox(loginDialog)
         self.buttonBox.setGeometry(QtCore.QRect(30, 240, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+                            QtWidgets.QDialogButtonBox.Cancel
+                            | QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.formLayoutWidget = QtWidgets.QWidget(loginDialog)
         self.formLayoutWidget.setGeometry(QtCore.QRect(30, 120, 341, 101))
         self.formLayoutWidget.setObjectName("formLayoutWidget")
         self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
-        self.formLayout.setFieldGrowthPolicy(QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
+        self.formLayout.setFieldGrowthPolicy(
+                                QtWidgets.QFormLayout.AllNonFixedFieldsGrow)
         self.formLayout.setObjectName("formLayout")
         self.mServerLabel = QtWidgets.QLabel(self.formLayoutWidget)
         self.mServerLabel.setObjectName("mServerLabel")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.mServerLabel)
+        self.formLayout.setWidget(0,
+                                  QtWidgets.QFormLayout.LabelRole,
+                                  self.mServerLabel)
         self.mServerLineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.mServerLineEdit.setInputMethodHints(QtCore.Qt.ImhUrlCharactersOnly)
+        self.mServerLineEdit.setInputMethodHints(
+                                QtCore.Qt.ImhUrlCharactersOnly)
         self.mServerLineEdit.setObjectName("mServerLineEdit")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.mServerLineEdit)
+        self.formLayout.setWidget(0,
+                                  QtWidgets.QFormLayout.FieldRole,
+                                  self.mServerLineEdit)
         self.unameLabel = QtWidgets.QLabel(self.formLayoutWidget)
         self.unameLabel.setObjectName("unameLabel")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.unameLabel)
+        self.formLayout.setWidget(1,
+                                  QtWidgets.QFormLayout.LabelRole,
+                                  self.unameLabel)
         self.uNameLineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.uNameLineEdit.setObjectName("uNameLineEdit")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.uNameLineEdit)
+        self.formLayout.setWidget(1,
+                                  QtWidgets.QFormLayout.FieldRole,
+                                  self.uNameLineEdit)
         self.pwdLabel = QtWidgets.QLabel(self.formLayoutWidget)
         self.pwdLabel.setObjectName("pwdLabel")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.pwdLabel)
+        self.formLayout.setWidget(2,
+                                  QtWidgets.QFormLayout.LabelRole,
+                                  self.pwdLabel)
         self.pwdLineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.pwdLineEdit.setInputMethodHints(QtCore.Qt.ImhHiddenText|QtCore.Qt.ImhNoAutoUppercase|QtCore.Qt.ImhNoPredictiveText)
+        self.pwdLineEdit.setInputMethodHints(
+                            QtCore.Qt.ImhHiddenText
+                            | QtCore.Qt.ImhNoAutoUppercase
+                            | QtCore.Qt.ImhNoPredictiveText)
         self.pwdLineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.pwdLineEdit.setObjectName("pwdLineEdit")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.pwdLineEdit)
+        self.formLayout.setWidget(2,
+                                  QtWidgets.QFormLayout.FieldRole,
+                                  self.pwdLineEdit)
         self.lblMastoLogo = QtWidgets.QLabel(loginDialog)
         self.lblMastoLogo.setGeometry(QtCore.QRect(140, 50, 120, 20))
         self.lblMastoLogo.setObjectName("lblMastoLogo")
@@ -98,13 +109,23 @@ class ui_login_dialog(object):
     def retranslate_ui(self, loginDialog):
         lingo = Translations()
         pics = Pics()
-        loginDialog.setWindowTitle(_translate("loginDialog", lingo.load("loginDialog"), None))
-        self.mServerLabel.setText(_translate("loginDialog", lingo.load("mServerLabel"), None))
-        self.unameLabel.setText(_translate("loginDialog", lingo.load("unameLabel"), None))
-        self.pwdLabel.setText(_translate("loginDialog", lingo.load("pwdLabel"), None))
+        _translate = QtCore.QCoreApplication.translate
+        loginDialog.setWindowTitle(_translate("loginDialog",
+                                              lingo.load("loginDialog"),
+                                              None))
+        self.mServerLabel.setText(_translate("loginDialog",
+                                             lingo.load("mServerLabel"),
+                                             None))
+        self.unameLabel.setText(_translate("loginDialog",
+                                           lingo.load("unameLabel"),
+                                           None))
+        self.pwdLabel.setText(_translate("loginDialog",
+                                         lingo.load("pwdLabel"),
+                                         None))
 
         self.lblMastoLogo.resize(120, 120)
-        mastodon_mascot = QtGui.QPixmap(pics.loginMascotImg).scaled(self.lblMastoLogo.size())
+        mastodon_mascot = QtGui.QPixmap(
+                        pics.loginMascotImg).scaled(self.lblMastoLogo.size())
         self.lblMastoLogo.setPixmap(mastodon_mascot)
         self.lblMastoLogo.move(140, 5)
 

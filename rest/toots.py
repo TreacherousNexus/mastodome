@@ -69,7 +69,8 @@ class Toot:
             return Toot(boosted_toot_author, boosted_toot), timestamp
 
     def is_reply(self):
-        return self.toot['in_reply_to_id'] is not None or self.toot['in_reply_to_account_id'] is not None
+        return self.toot['in_reply_to_id'] is not None or \
+                self.toot['in_reply_to_account_id'] is not None
 
     def get_avatar(self, static=True):
         if static:
@@ -105,7 +106,8 @@ class Toot:
         return self.toot['spoiler_text']
 
     def get_timestamp(self):
-        time_delta = datetime.now(timezone.utc) - self.toot['created_at'].astimezone(timezone.utc)
+        toot_timestamp = self.toot['created_at'].astimezone(timezone.utc)
+        time_delta = datetime.now(timezone.utc) - toot_timestamp
         if time_delta > timedelta(days=14):
             return self.toot['created_at'].strftime("%d %b '%y")
         elif time_delta > timedelta(days=1):

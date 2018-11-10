@@ -33,13 +33,16 @@ class CredentialStore:
         self.secret_client_prefix = "csec"
         self.secret_user_prefix = "usec"
         self.config = Config()
-        self.key_cache_location = os.curdir + self.config.GUI_DEFAULTS_FILE_LOC_PREFIX + "known-keys.txt"
+        self.key_cache_location = os.curdir \
+            + self.config.GUI_DEFAULTS_FILE_LOC_PREFIX + "known-keys.txt"
 
     def set_client_keys(self, domain, uname, client_id, client_secret):
         cid_username = "-".join([self.id_client_prefix, uname, domain])
         csecret_username = "-".join([self.secret_client_prefix, uname, domain])
         keyring.set_password(self.config.APP_NAME, cid_username, client_id)
-        keyring.set_password(self.config.APP_NAME, csecret_username, client_secret)
+        keyring.set_password(self.config.APP_NAME,
+                             csecret_username,
+                             client_secret)
         with open(self.key_cache_location, "a") as cache_file:
             cache_file.write("\n".join([cid_username, csecret_username]))
             cache_file.write("\n")
@@ -48,7 +51,7 @@ class CredentialStore:
         cid_username = "-".join([self.id_client_prefix, uname, domain])
         csecret_username = "-".join([self.secret_client_prefix, uname, domain])
         return keyring.get_password(self.config.APP_NAME, cid_username), \
-               keyring.get_password(self.config.APP_NAME, csecret_username)
+            keyring.get_password(self.config.APP_NAME, csecret_username)
 
     def delete_client_keys(self, domain, uname):
         cid_username = "-".join([self.id_client_prefix, uname, domain])
@@ -58,7 +61,8 @@ class CredentialStore:
         new_cache = []
         with open(self.key_cache_location, "r") as cache_file:
             for line in cache_file:
-                if line.strip() != cid_username and line.strip() != csecret_username:
+                if line.strip() != cid_username and \
+                        line.strip() != csecret_username:
                     new_cache.append(line)
         with open(self.key_cache_location, "w") as cache_file:
             cache_file.writelines(new_cache)

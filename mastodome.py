@@ -26,6 +26,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from gui import mainwindow
 
+
 def window():
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()

@@ -39,7 +39,8 @@ class Notifications:
             if n_type == "follow":
                 new_notification = Notification(n_type, item['account'])
             else:
-                new_notification = Notification(n_type, item['account'], item['status'])
+                new_notification = \
+                        Notification(n_type, item['account'], item['status'])
             self.notifications_stream[timestamp] = new_notification
 
     def get_notifications(self):
