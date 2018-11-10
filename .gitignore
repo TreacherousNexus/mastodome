@@ -1,4 +1,8 @@
 *.pyc
 *.bak
-config/.defaults/known-keys.txt
+config/.defaults/*
 config/.cache/*
+.idea/
+.settings/
+.project
+.pydevproject
