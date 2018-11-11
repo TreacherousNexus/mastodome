@@ -95,5 +95,6 @@ Maybe. If there are they'll all be 0.x (with the "x" corresponding to the month 
 * 0.1: First proof of concept (released January 2018)
 * 0.4: All the features I'd consider to be "core functionality"
 * 0.7: Useful things like hashtags, lists & other things I notice are missing when I start using it full-time
-* 0.9: Support for more federated services and (possibly) a plugin interface
 * 1.0: Stable release with additional installers for Windows and Mac
+
+Support for other federated services and a plug-in interface will likely be implemented after the 1.0 release.
