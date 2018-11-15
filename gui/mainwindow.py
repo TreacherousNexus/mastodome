@@ -520,7 +520,7 @@ class MainWindow(object):
                 if toot.has_media():
                     image_alt_text = self.get_image_alt_text(toot.get_media())
                 if toot.has_cw():
-                    content_warning = "=== CW: " + toot.get_cw() + " ===\n\n"
+                    content_warning = self.get_cw_text(toot.get_cw())
                 item = QtGui.QStandardItem()
                 new_item = QtGui.QStandardItem()
                 icon = QtGui.QIcon()
@@ -533,8 +533,7 @@ class MainWindow(object):
                     if boosted_toot.has_media():
                         image_alt_text = self.get_image_alt_text(boosted_toot.get_media())
                     if boosted_toot.has_cw():
-                        content_warning = "=== CW: " + boosted_toot.get_cw() \
-                            + " ===\n\n"
+                        content_warning = self.get_cw_text(boosted_toot.get_cw())
                     image.load(fetch.get_image(boosted_toot.get_avatar()))
                     item.setText(boosted_toot.get_display_name()
                                  + " <" + boosted_toot.get_full_handle() + ">"
@@ -594,9 +593,8 @@ class MainWindow(object):
                     title_text = start_title + lingo.load("notify_follow") + "."
                 else:
                     if notification.has_cw():
-                        content_text = "=== CW: " + notification.get_cw() \
-                                       + " ===\n\n"
-                    image_alt_text = "\n"
+                        content_text = self.get_cw_text(notification.get_cw())
+                    image_alt_text = ""
                     if notification.has_media():
                         image_alt_text = self.get_image_alt_text(notification.get_media())
 
@@ -623,6 +621,9 @@ class MainWindow(object):
             if description is None:
                 description = "Missing alt text"
             return "\n\n" + entry_image['type'] + ": " + description
+
+    def get_cw_text(self, cw_text):
+        return "=== CW: " + cw_text + "===\n\n"
 
     def fetch_avatar(self, avatar_text):
         icon = QtGui.QIcon()
