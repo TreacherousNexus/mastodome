@@ -593,6 +593,8 @@ class MainWindow(object):
                 new_item = QtGui.QStandardItem()
                 title_font = item.font()
                 title_font.setBold(True)
+                own_toot_font = item.font()
+                own_toot_font.setItalic(True)
                 item.setFont(title_font)
                 icon = QtGui.QIcon()
                 image = QtGui.QImage()
@@ -610,17 +612,20 @@ class MainWindow(object):
                 elif notification.n_type == "reblog":
                     title_text = notification.get_display_name() + " " \
                                  + lingo.load("notify_reblog") + ":"
-                    content_text = notification.status['uri']
+                    content_text = notification.get_content()
+                    new_item.setFont(own_toot_font)
                 elif notification.n_type == "favourite":
                     title_text = notification.get_display_name() + " " \
                                  + lingo.load("notify_fav") + ":"
-                    content_text = notification.status['uri']
+                    content_text = notification.get_content()
+                    new_item.setFont(own_toot_font)
                 elif notification.n_type == "mention":
                     title_text = notification.get_display_name() + " " \
                                  + lingo.load("notify_mention") + ":"
-                    content_text = notification.status['uri']
+                    content_text = notification.get_content()
+
                 item.setText(title_text)
-                new_item.setText(content_text)
                 model.appendRow(item)
+                new_item.setText(content_text)
                 model.appendRow(new_item)
             self.listViewNotifications.setModel(model)

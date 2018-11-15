@@ -23,6 +23,7 @@
 
 import collections
 from rest import fetch
+import html2text
 
 
 class Notifications:
@@ -63,3 +64,11 @@ class Notification:
         if static:
             return fetch.get_image(self.user['avatar_static'])
         return fetch.get_image(self.user['avatar'])
+
+    def get_uri(self):
+        return self.status['uri']
+
+    def get_content(self):
+        h = html2text.HTML2Text()
+        h.ignore_links = True
+        return h.handle(self.status['content'])
