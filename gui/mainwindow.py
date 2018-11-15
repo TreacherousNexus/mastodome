@@ -586,8 +586,9 @@ class MainWindow(object):
             lingo = Translations()
             model = QtGui.QStandardItemModel(self.listViewNotifications)
 
-            notifications = self.current_session.get_notifications()
-            for timestamp, notification in list(notifications.items()):
+            notifications = OrderedDict(self.current_session.get_notifications().items())
+            for timestamp in notifications:
+                notification = notifications[timestamp]
                 item = QtGui.QStandardItem()
                 if notification.n_type == "follow":
                     item.setText(notification.get_display_name() + " "
