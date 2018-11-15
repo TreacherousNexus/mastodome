@@ -590,26 +590,37 @@ class MainWindow(object):
             for timestamp in notifications:
                 notification = notifications[timestamp]
                 item = QtGui.QStandardItem()
-                if notification.n_type == "follow":
-                    item.setText(notification.get_display_name() + " "
-                                 + lingo.load("notify_follow") + ".")
-                elif notification.n_type == "reblog":
-                    item.setText(notification.get_display_name() + " "
-                                 + lingo.load("notify_reblog") + " "
-                                 + notification.status['uri'])
-                elif notification.n_type == "favourite":
-                    item.setText(notification.get_display_name() + " "
-                                 + lingo.load("notify_fav") + " "
-                                 + notification.status['uri'])
-                elif notification.n_type == "mention":
-                    item.setText(notification.get_display_name() + " "
-                                 + lingo.load("notify_mention") + " "
-                                 + notification.status['uri'])
+                new_item = QtGui.QStandardItem()
+                title_font = item.font()
+                title_font.setBold(True)
+                item.setFont(title_font)
                 icon = QtGui.QIcon()
                 image = QtGui.QImage()
+
                 image.load(fetch.get_image(notification.get_avatar()))
                 icon.addPixmap(QtGui.QPixmap(image),
                                QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 item.setIcon(icon)
+
+                title_text = ""
+                content_text = ""
+                if notification.n_type == "follow":
+                    title_text = notification.get_display_name() + " " \
+                                 + lingo.load("notify_follow") + "."
+                elif notification.n_type == "reblog":
+                    title_text = notification.get_display_name() + " " \
+                                 + lingo.load("notify_reblog") + ":"
+                    content_text = notification.status['uri']
+                elif notification.n_type == "favourite":
+                    title_text = notification.get_display_name() + " " \
+                                 + lingo.load("notify_fav") + ":"
+                    content_text = notification.status['uri']
+                elif notification.n_type == "mention":
+                    title_text = notification.get_display_name() + " " \
+                                 + lingo.load("notify_mention") + ":"
+                    content_text = notification.status['uri']
+                item.setText(title_text)
+                new_item.setText(content_text)
                 model.appendRow(item)
+                model.appendRow(new_item)
             self.listViewNotifications.setModel(model)
