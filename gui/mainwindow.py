@@ -518,13 +518,7 @@ class MainWindow(object):
                 image_alt_text = ""
                 content_warning = ""
                 if toot.has_media():
-                    image_alt_text = "\n"
-                    for toot_image in toot.get_media():
-                        description = toot_image['description']
-                        if description is None:
-                            description = "Missing alt text"
-                        image_alt_text += "\n" + toot_image['type'] \
-                                          + ": " + description
+                    image_alt_text = self.get_image_alt_text(toot.get_media())
                 if toot.has_cw():
                     content_warning = "=== CW: " + toot.get_cw() + " ===\n\n"
                 item = QtGui.QStandardItem()
@@ -537,13 +531,7 @@ class MainWindow(object):
                 if toot.is_boost():
                     boosted_toot = toot.get_boost()
                     if boosted_toot.has_media():
-                        image_alt_text = "\n"
-                        for boosted_image in boosted_toot.get_media():
-                            description = boosted_image['description']
-                            if description is None:
-                                description = "Missing alt text"
-                            image_alt_text += "\n" + boosted_image['type'] \
-                                + ": " + description
+                        image_alt_text = self.get_image_alt_text(boosted_toot.get_media())
                     if boosted_toot.has_cw():
                         content_warning = "=== CW: " + boosted_toot.get_cw() \
                             + " ===\n\n"
@@ -596,36 +584,51 @@ class MainWindow(object):
                 own_toot_font = item.font()
                 own_toot_font.setItalic(True)
                 item.setFont(title_font)
-                icon = QtGui.QIcon()
-                image = QtGui.QImage()
-
-                image.load(fetch.get_image(notification.get_avatar()))
-                icon.addPixmap(QtGui.QPixmap(image),
-                               QtGui.QIcon.Normal, QtGui.QIcon.Off)
-                item.setIcon(icon)
-
-                title_text = ""
+                item.setIcon(self.fetch_avatar(notification.get_avatar()))
                 content_text = ""
+                title_text = ""
+                start_title = notification.get_display_name() + " <" \
+                              + notification.get_full_handle() + "> "
+
                 if notification.n_type == "follow":
-                    title_text = notification.get_display_name() + " " \
-                                 + lingo.load("notify_follow") + "."
-                elif notification.n_type == "reblog":
-                    title_text = notification.get_display_name() + " " \
-                                 + lingo.load("notify_reblog") + ":"
-                    content_text = notification.get_content()
+                    title_text = start_title + lingo.load("notify_follow") + "."
+                else:
+                    if notification.has_cw():
+                        content_text = "=== CW: " + notification.get_cw() \
+                                       + " ===\n\n"
+                    image_alt_text = "\n"
+                    if notification.has_media():
+                        image_alt_text = self.get_image_alt_text(notification.get_media())
+
+                    content_text += notification.get_content() + image_alt_text
                     new_item.setFont(own_toot_font)
-                elif notification.n_type == "favourite":
-                    title_text = notification.get_display_name() + " " \
-                                 + lingo.load("notify_fav") + ":"
-                    content_text = notification.get_content()
-                    new_item.setFont(own_toot_font)
-                elif notification.n_type == "mention":
-                    title_text = notification.get_display_name() + " " \
-                                 + lingo.load("notify_mention") + ":"
-                    content_text = notification.get_content()
+
+                    if notification.n_type == "reblog":
+                        title_text = start_title + lingo.load("notify_reblog") + ":"
+                    elif notification.n_type == "favourite":
+                        title_text = start_title + lingo.load("notify_fav") + ":"
+                    elif notification.n_type == "mention":
+                        title_text = start_title + "[" + notification.get_timestamp() \
+                                     + "]:"
 
                 item.setText(title_text)
                 model.appendRow(item)
                 new_item.setText(content_text)
                 model.appendRow(new_item)
             self.listViewNotifications.setModel(model)
+
+    def get_image_alt_text(self, all_media):
+        for entry_image in all_media:
+            description = entry_image['description']
+            if description is None:
+                description = "Missing alt text"
+            return "\n\n" + entry_image['type'] + ": " + description
+
+    def fetch_avatar(self, avatar_text):
+        icon = QtGui.QIcon()
+        image = QtGui.QImage()
+
+        image.load(fetch.get_image(avatar_text))
+        icon.addPixmap(QtGui.QPixmap(image),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        return icon
