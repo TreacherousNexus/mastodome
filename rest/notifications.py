@@ -22,8 +22,9 @@
 
 
 import collections
-from rest import fetch
 import html2text
+from rest import fetch
+from datetime import datetime, timezone, timedelta
 
 
 class Notifications:
@@ -72,3 +73,34 @@ class Notification:
         h = html2text.HTML2Text()
         h.ignore_links = True
         return h.handle(self.status['content'])
+
+    def has_cw(self):
+        return self.status['spoiler_text'] is not ""
+
+    def get_cw(self):
+        return self.status['spoiler_text']
+
+    def get_full_handle(self):
+        return self.user['acct']
+
+    def has_media(self):
+        return any(self.status['media_attachments'])
+
+    def get_media(self):
+        return self.status['media_attachments']
+
+    def get_timestamp(self):
+        toot_timestamp = self.status['created_at'].astimezone(timezone.utc)
+        time_delta = datetime.now(timezone.utc) - toot_timestamp
+        if time_delta > timedelta(days=14):
+            return self.status['created_at'].strftime("%d %b '%y")
+        elif time_delta > timedelta(days=1):
+            return str(int(round(time_delta.total_seconds()/86400))) + "d"
+        elif time_delta > timedelta(hours=1):
+            return str(int(round(time_delta.total_seconds()/3600))) + "h"
+        elif time_delta > timedelta(minutes=1):
+            return str(int(round(time_delta.total_seconds()/60))) + "m"
+        else:
+            return str(int(round(time_delta.total_seconds()))) + "s"
+
+
