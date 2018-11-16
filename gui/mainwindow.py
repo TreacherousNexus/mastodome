@@ -493,7 +493,9 @@ class MainWindow(object):
                 potential_cw = self.lineEditCW.text()
             if validators.length(potential_toot + potential_cw,
                                  max=self.config.GUI_TOOT_MAX_SIZE_CHARS):
-                self.current_session.send_toot(potential_toot, potential_cw)
+                privacy_level = self.get_privacy_selection()
+                self.current_session.send_toot(
+                    potential_toot, privacy_level, potential_cw)
             else:
                 raise ValueError
             self.plainTextEditToot.clear()
@@ -639,6 +641,6 @@ class MainWindow(object):
     def get_privacy_selection(self):
         lingo = Translations()
         selected_privacy_level = self.cmbPrivacy.currentText()
-        for privacy_level, privacy_text in dict(lingo.load("cmbPrivacy")):
-            if privacy_text is selected_privacy_level:
+        for privacy_level, privacy_text in dict(lingo.load("cmbPrivacy")).items():
+            if privacy_text == selected_privacy_level:
                 return privacy_level
