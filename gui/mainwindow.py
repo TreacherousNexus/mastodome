@@ -545,14 +545,6 @@ class MainWindow(object):
                         + ": " + toot.get_display_name()
                         + " <" + toot.get_full_handle() + ">"
                         + " (" + toot.get_timestamp() + ")")
-                elif toot.is_reply():
-                    image.load(fetch.get_image(toot.get_avatar()))
-                    item.setText(toot.get_display_name()
-                                 + " <" + toot.get_full_handle() + ">"
-                                 + " [" + toot.get_timestamp() + "]")
-                    new_item.setText(content_warning
-                                     + toot.get_content().rstrip()
-                                     + image_alt_text)
                 else:
                     image.load(fetch.get_image(toot.get_avatar()))
                     item.setText(toot.get_display_name()
@@ -586,6 +578,7 @@ class MainWindow(object):
                 item.setIcon(self.fetch_avatar(notification.get_avatar()))
                 content_text = ""
                 title_text = ""
+                image_alt_text = ""
                 start_title = notification.get_display_name() + " <" \
                               + notification.get_full_handle() + "> "
 
@@ -594,7 +587,7 @@ class MainWindow(object):
                 else:
                     if notification.has_cw():
                         content_text = self.get_cw_text(notification.get_cw())
-                    image_alt_text = ""
+
                     if notification.has_media():
                         image_alt_text = self.get_image_alt_text(notification.get_media())
 
@@ -623,7 +616,7 @@ class MainWindow(object):
             return "\n\n" + entry_image['type'] + ": " + description
 
     def get_cw_text(self, cw_text):
-        return "=== CW: " + cw_text + "===\n\n"
+        return "=== CW: " + cw_text + " ===\n\n"
 
     def fetch_avatar(self, avatar_text):
         icon = QtGui.QIcon()
