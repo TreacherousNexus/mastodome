@@ -7,8 +7,8 @@ Mastodome 0.2 (STILL IN DEV)
 * Displays alt text for images in toots
 * Displays timestamp for when toots are posted (and boosted)
 * Shows content warnings as subjects in the stream
-* TODO: Shows full notification text
-* TODO: Posts toots with content warnings and differing privacy levels
+* Shows full notification text
+* Posts toots with content warnings and differing privacy levels. Also auto-selects default privacy level
 * TODO: Outputs errors as message boxes, and error text is set in the translation files
 * Removes the status label
 
