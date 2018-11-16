@@ -409,6 +409,7 @@ class MainWindow(object):
         self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginUnlockedIcon))
         self.actionLogout.setEnabled(True)
         self.btnToot.setEnabled(True)
+        self.btnCW.setEnabled(True)
         self.plainTextEditToot.setEnabled(True)
         self.plainTextEditToot.setFocus(True)
         self.reload_panels()
@@ -438,6 +439,7 @@ class MainWindow(object):
             icons = Icons()
             self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginLockedIcon))
             self.btnToot.setEnabled(False)
+            self.btnCW.setEnabled(False)
             self.reset_panels()
             fetch.clear_image_cache()
 
@@ -482,17 +484,23 @@ class MainWindow(object):
     def send_toot(self):
         if self.current_session is not None:
             potential_toot = str(self.plainTextEditToot.toPlainText())
-            if validators.length(potential_toot,
+            potential_cw = ""
+            if self.lineEditCW.isVisible():
+                potential_cw = self.lineEditCW.text()
+            if validators.length(potential_toot + potential_cw,
                                  max=self.config.GUI_TOOT_MAX_SIZE_CHARS):
-                self.current_session.send_toot(potential_toot)
+                self.current_session.send_toot(potential_toot, potential_cw)
                 self.plainTextEditToot.clear()
+                self.lineEditCW.clear()
             else:
                 raise ValueError
             lingo = Translations()
             self.btnToot.setEnabled(False)
+            self.btnCW.setEnabled(False)
             self.btnToot.setText(lingo.load("btnTootLoad"))
             self.reload_panels()
             self.btnToot.setEnabled(True)
+            self.btnCW.setEnabled(True)
             self.btnToot.setText(lingo.load("btnToot"))
 
     def disable_all_stream_buttons(self):

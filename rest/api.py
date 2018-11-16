@@ -62,9 +62,9 @@ class Session:
             logout.user_logout()
             self.current_session = None
 
-    def send_toot(self, toot):
+    def send_toot(self, toot, cw=None):
         if self.is_initialised():
-            self.current_session.toot(toot)
+                self.current_session.status_post(toot, spoiler_text=cw)
 
     def get_account_username(self):
         if self.is_initialised():
