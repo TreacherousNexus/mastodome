@@ -411,6 +411,7 @@ class MainWindow(object):
         self.btnToot.setEnabled(True)
         self.btnCW.setEnabled(True)
         self.cmbPrivacy.setEnabled(True)
+        self.set_privacy_selection(self.current_session.get_account_default_privacy())
         self.plainTextEditToot.setEnabled(True)
         self.plainTextEditToot.setFocus(True)
         self.reload_panels()
@@ -644,3 +645,12 @@ class MainWindow(object):
         for privacy_level, privacy_text in dict(lingo.load("cmbPrivacy")).items():
             if privacy_text == selected_privacy_level:
                 return privacy_level
+
+    def set_privacy_selection(self, selected_privacy_level):
+        if selected_privacy_level is not None:
+            lingo = Translations()
+            for privacy_level, privacy_text in dict(lingo.load("cmbPrivacy")).items():
+                if privacy_level == selected_privacy_level:
+                    index = self.cmbPrivacy.findText(privacy_text)
+                    if index > -1:
+                        self.cmbPrivacy.setCurrentIndex(index)

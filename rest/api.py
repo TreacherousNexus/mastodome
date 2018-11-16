@@ -70,6 +70,10 @@ class Session:
         if self.is_initialised():
             return self.current_session.account_verify_credentials().acct
 
+    def get_account_default_privacy(self):
+        if self.is_initialised():
+            return self.current_session.account_verify_credentials()["source"].privacy
+
     def get_session_username(self):
         return self.username
 
