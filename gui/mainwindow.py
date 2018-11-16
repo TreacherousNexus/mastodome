@@ -490,18 +490,17 @@ class MainWindow(object):
             if validators.length(potential_toot + potential_cw,
                                  max=self.config.GUI_TOOT_MAX_SIZE_CHARS):
                 self.current_session.send_toot(potential_toot, potential_cw)
-                self.plainTextEditToot.clear()
-                self.lineEditCW.clear()
             else:
                 raise ValueError
-            lingo = Translations()
+            self.plainTextEditToot.clear()
             self.btnToot.setEnabled(False)
             self.btnCW.setEnabled(False)
-            self.btnToot.setText(lingo.load("btnTootLoad"))
             self.reload_panels()
             self.btnToot.setEnabled(True)
             self.btnCW.setEnabled(True)
-            self.btnToot.setText(lingo.load("btnToot"))
+            self.lineEditCW.clear()
+            if self.lineEditCW.isVisible():
+                self.hide_show_cw()
 
     def disable_all_stream_buttons(self):
         self.btnHome.setEnabled(False)
