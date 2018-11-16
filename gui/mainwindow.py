@@ -591,7 +591,7 @@ class MainWindow(object):
                     if notification.has_media():
                         image_alt_text = self.get_image_alt_text(notification.get_media())
 
-                    content_text += notification.get_content() + image_alt_text
+                    content_text += notification.get_content().rstrip() + image_alt_text
                     new_item.setFont(own_toot_font)
 
                     if notification.n_type == "reblog":
