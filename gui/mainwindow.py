@@ -303,10 +303,10 @@ class MainWindow(object):
                     privacy_options["unlisted"])
         self.cmbPrivacy.addItem(
                 QtGui.QIcon(icons.cmbFollowerOnlyToot),
-                privacy_options["followers-only"])
+                privacy_options["private"])
         self.cmbPrivacy.addItem(
                 QtGui.QIcon(icons.cmbDirectMessageToot),
-                privacy_options["direct-message"])
+                privacy_options["direct"])
         self.cmbPrivacy.setEnabled(False)
 
         self.listViewLoggedInAccounts.clicked.connect(self.switch_accounts)
@@ -410,6 +410,7 @@ class MainWindow(object):
         self.actionLogout.setEnabled(True)
         self.btnToot.setEnabled(True)
         self.btnCW.setEnabled(True)
+        self.cmbPrivacy.setEnabled(True)
         self.plainTextEditToot.setEnabled(True)
         self.plainTextEditToot.setFocus(True)
         self.reload_panels()
@@ -440,6 +441,7 @@ class MainWindow(object):
             self.actionLogin.setIcon(QtGui.QIcon(icons.actionLoginLockedIcon))
             self.btnToot.setEnabled(False)
             self.btnCW.setEnabled(False)
+            self.cmbPrivacy.setEnabled(False)
             self.reset_panels()
             fetch.clear_image_cache()
 
@@ -483,6 +485,8 @@ class MainWindow(object):
 
     def send_toot(self):
         if self.current_session is not None:
+            self.btnToot.setEnabled(False)
+            self.btnCW.setEnabled(False)
             potential_toot = str(self.plainTextEditToot.toPlainText())
             potential_cw = ""
             if self.lineEditCW.isVisible():
@@ -493,12 +497,10 @@ class MainWindow(object):
             else:
                 raise ValueError
             self.plainTextEditToot.clear()
-            self.btnToot.setEnabled(False)
-            self.btnCW.setEnabled(False)
+            self.lineEditCW.clear()
             self.reload_panels()
             self.btnToot.setEnabled(True)
             self.btnCW.setEnabled(True)
-            self.lineEditCW.clear()
             if self.lineEditCW.isVisible():
                 self.hide_show_cw()
 
@@ -633,3 +635,10 @@ class MainWindow(object):
         icon.addPixmap(QtGui.QPixmap(image),
                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         return icon
+
+    def get_privacy_selection(self):
+        lingo = Translations()
+        selected_privacy_level = self.cmbPrivacy.currentText()
+        for privacy_level, privacy_text in dict(lingo.load("cmbPrivacy")):
+            if privacy_text is selected_privacy_level:
+                return privacy_level

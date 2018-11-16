@@ -52,7 +52,7 @@
   "cmbPrivacy": {
     "public": "Public",
     "unlisted": "Local & Followers",
-    "followers-only": "Followers Only",
-    "direct-message": "Direct Message"
+    "private": "Followers Only",
+    "direct": "Direct Message"
   }
 }
