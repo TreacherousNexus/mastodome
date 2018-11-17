@@ -1,10 +1,6 @@
 To develop this you will need the following packages installed
 python3-pip
-python3.6-dev
-python3-pyqt5
-libxext-dev
-build-essential
-python-keyring
+python3.x-dev
 pyqt5-dev-tools
 qt4-dev-tools
 qt4-designer
@@ -15,7 +11,8 @@ Pip3 dependencies:
 Mastodon.py
 validators
 html2text
-PyInstaller
+PyQt5
+keyring
 
 (This document is temporary. Will clean this up later)
 
