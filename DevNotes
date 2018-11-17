@@ -5,8 +5,6 @@ pyqt5-dev-tools
 qt4-dev-tools
 qt4-designer
 
-python-qt4??
-
 Pip3 dependencies:
 Mastodon.py
 validators
