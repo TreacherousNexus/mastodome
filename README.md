@@ -15,35 +15,54 @@ Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/M
 The terminology is a little different too. You "toot" a message, "boost" other peoples' toots to your followers and "favourite" messages you like.
 I'm convinced that in time, most people will see that Twitter doesn't have their best interests at heart and start to migrate across. Or at the very least, have an account on both systems.
 
-For some great advice on how to get started and register, check out [this noobie guide](https://theoutline.com/post/2689/mastodon-makes-the-internet-feel-like-home-again) from [@srol@mellified.men](https://mellified.men/@srol).
+For more information about why Mastodon is a great alternative to Twitter, check out [this blog post](https://theoutline.com/post/2689/mastodon-makes-the-internet-feel-like-home-again) from [@srol@mellified.men](https://mellified.men/@srol).
+
+For instructions on how to create a profile on Mastodon, [this blog post](https://kevq.uk/getting-started-with-mastodon/) by [@kev@fosstodon.org](https://fosstodon.org/@kev) is a great place to start.
 
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from bitbucket using the following commands:
 ```bash
 $ git clone git@gitlab.com:bobstechsite/mastodome.git
 ```
-You should now open the `DEVNOTES` file and install all the dependencies this package requires using your system's package manager and `pip3`. Once you've done so, navigate to the cloned directory and launch Mastodome with:
+You should now follow the setup steps for the application:
 ```bash
-$ python3 mastodome.py
+$ sudo apt install python3 python3-pip
+$ pip3 install Mastodon.py validators html2text PyQt5 keyring
+$ mkdir -p mastodome/config/.cache/
+$ chmod +x mastodome/mastodome.py
 ```
-If you run into a `FileNotFoundError` on login, creating the `config/.cache` folder manually will fix it.
 
-In future releases I will make the process of installing and running Mastodome much simpler. There will also be a user guide on the project wiki with pictures and diagrams.
+Finally, run the program itself:
+```bash
+$ cd mastodome
+$ ./mastodome.py
+```
+If you want to develop Mastodome, read the `DevNotes` file for additional dependencies and supporting tools.
+
+In future releases I will make the process of installing and running Mastodome much simpler, and less dependent on you launching the program from the correct folder!
 
 ## New in this release (0.2)
-See `CHANGELOG` for list of in-development changes.
+See `CHANGELOG` for a full list of changes. But the most notable features are:
+
+* Creates toots with content warnings and different privacy levels
+* Displays content warnings and image alt text in the toot stream
+* Displays full content of Notifications
+* Remembers previous logins and provides a passwordless user switcher
+* Supports resizing the main window
+* Runs on Python 3 and Qt 5
 
 ### Known Issues & Limitations
+* This is still alpha stage software. You should expect to find bugs and missing functionality
 * 2FA is not supported. If you have enabled it for your account, you will need to disable it the first time you register the app, then re-enable it. You will have to do this if you ever use "log out..." instead of just exiting Mastodome
 * The GUI only permits toots up to 280 characters in size by default, but this can be changed in config
 
 ## FAQs
 ### Is Mastodome open source and/or free software?
-Yes!
-* Mastodome is licensed under the GNU GPLv3
-* All icon images are public domain and taken from Gnome's [Tango](https://commons.wikimedia.org/wiki/Tango_icons) iconset.
-* The Mastodon logo and the mascot used on the login window are the property of the [Mastodon](https://github.com/tootsuite/mastodon) project and distributed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html).
-* Custom artwork I created for Mastodome (i.e. the Mastodome icon and image in the About window) are the property of me (Bobby Moss) and shared under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+Yes! Mastodome is free software.
+* Mastodome itself is licensed under the GNU GPLv3
+* All icon images are public domain and taken from Gnome's [Tango](https://commons.wikimedia.org/wiki/Tango_icons) iconset
+* The Mastodon logo and the mascot used on the login window are the property of the [Mastodon](https://github.com/tootsuite/mastodon) project and distributed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html)
+* Custom artwork I created for Mastodome (i.e. the Mastodome icon and image in the About window) are the property of me (Bobby Moss) and shared under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 
 So, if you're someone who likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.
 
@@ -72,7 +91,7 @@ There are also beneficial side-effects of using Python:
 Those last two points are particularly important to me because I want to make this software program as accessible as possible to everyone. This is why Mastodome already supports translations and will be as user-configurable as possible. I also chose to stick with well-established libraries/frameworks/UI paradigms because they work across the widest range of PCs (of varying age) and existing disability-assistance tools.
 
 ### Will Mastodome support cross-posting to multiple accounts?
-I'm planning to support logging into multiple accounts with "fast switching" between them in 0.3. Cross-posting with a single toot will likely arrive in the release after in 0.4.
+Mastodome already supports "fast switching" between user accounts. Cross-posting with a single toot will be supported in a future release.
 
 ### Will Mastodome support cross-posting to Twitter and Facebook?
 Not in the immediate future, for the following reasons:
