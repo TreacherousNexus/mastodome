@@ -42,7 +42,7 @@ If you want to develop Mastodome, read the `DevNotes` file for additional depend
 In future releases I will make the process of installing and running Mastodome much simpler, and less dependent on you launching the program from the correct folder!
 
 ## New in this release (0.2)
-See `CHANGELOG` for a full list of changes. But the most notable features are:
+See `CHANGELOG` for a full list of changes. The most notable features are:
 
 * Creates toots with content warnings and different privacy levels
 * Displays content warnings and image alt text in the toot stream
