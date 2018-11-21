@@ -401,8 +401,8 @@ class MainWindow(object):
         if self.current_session is not None:
             self.setup_login_list()
             self.update_ui_new_login()
-            self.current_login = dialog.ui.logged_in_domain
-            + " | " + dialog.ui.logged_in_user
+            self.current_login = dialog.ui.logged_in_domain \
+                                 + " | " + dialog.ui.logged_in_user
 
     def update_ui_new_login(self):
         icons = Icons()

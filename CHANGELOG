@@ -1,4 +1,4 @@
-Mastodome 0.2 (STILL IN DEV)
+Mastodome 0.2
 * Runs on Python 3 and Qt 5
 * Fixes broken keyboard shortcuts
 * Enables users to resize the main window
@@ -9,7 +9,6 @@ Mastodome 0.2 (STILL IN DEV)
 * Shows content warnings as subjects in the stream
 * Shows full notification text
 * Posts toots with content warnings and differing privacy levels. Also auto-selects default privacy level
-* TODO: Outputs errors as message boxes, and error text is set in the translation files
 * Removes the status label
 
 Mastodome 0.1 (2018-01-31)
