@@ -20,9 +20,9 @@ For more information about why Mastodon is a great alternative to Twitter, check
 For instructions on how to create a profile on Mastodon, [this blog post](https://kevq.uk/getting-started-with-mastodon/) by [@kev@fosstodon.org](https://fosstodon.org/@kev) is a great place to start.
 
 ## Getting started with Mastodome
-To pull down the latest stable code, simply pull from bitbucket using the following commands:
+To pull down the latest stable code, simply pull from gitlab using the following commands:
 ```bash
-$ git clone git@gitlab.com:bobstechsite/mastodome.git
+$ git clone https://gitlab.com/bobstechsite/mastodome.git
 ```
 You should now follow the setup steps for the application:
 ```bash
