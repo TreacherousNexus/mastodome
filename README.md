@@ -56,7 +56,7 @@ If you want to develop Mastodome, read the `DevNotes` file for additional depend
 ## New in this release (0.3)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
-* Setup now installs fixed versions "known good" pip dependencies
+* Setup now installs fixed "known good" versions of pip dependencies
 * Re-licenses project under MIT terms
 * Removes third party assets that were licensed under AGPL
 
