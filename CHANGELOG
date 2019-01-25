@@ -1,8 +1,8 @@
 Mastodome 0.3 (2019-01-25)
-* Removed assets licensed under AGPL by Mastodon project
-* Re-licensed Mastodome under MIT terms
-* Updated README
-* Set fixed versions for pip dependencies
+* Removes assets licensed under AGPL by Mastodon project
+* Re-licenses Mastodome under MIT terms
+* Updates README
+* Sets fixed versions for pip dependencies
 
 Mastodome 0.2 (2018-11-21)
 * Runs on Python 3 and Qt 5

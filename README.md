@@ -4,12 +4,14 @@ A new Qt-based Mastodon client written in Python.
 ## Intro
 Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better.
 
-**This project is no longer in active development**. It has been permissively re-licensed under MIT terms. If you want to use the Mastodome name please contact [Bobby Moss](https://bobstechsite.co.uk/about.html).
+**This project is no longer in active development**. It has been permissively re-licensed under MIT terms. 
+
+If you want to use the Mastodome name please contact [Bobby Moss](https://bobstechsite.co.uk/about.html).
 
 ## What is Mastodon?
-Mastodon is a microblogging social network that is "federated". This means that there is no one single website that hosts Mastodon; the site is distributed across hundreds of servers, and you can even host an instance yourself!
+Mastodon is a microblogging social network that is "federated". This means that there is no one single website that hosts Mastodon; the site is distributed across hundreds of servers, and you can even host an instance yourself.
 
-This federated platform makes use of the [ActivityPub](https://en.wikipedia.org/wiki/ActivityPub) standard. This means that Mastodon users can see content from other social networks and websites such as [Pleroma](https://pleroma.social/), [PeerTube](https://joinpeertube.org/en/) and [Pixelfed](https://pixelfed.social/) as though they have been posted on the same website.
+This federated platform makes use of the [ActivityPub](https://en.wikipedia.org/wiki/ActivityPub) standard. That means Mastodon users can see content from other social networks and websites such as [Pleroma](https://pleroma.social/), [PeerTube](https://joinpeertube.org/en/) and [Pixelfed](https://pixelfed.social/) as though they have been posted on the same website.
 
 Here are some additional advantages Mastodon has over Twitter:
 * Ad-supported messages and bots do not clutter up your news feed
@@ -54,9 +56,9 @@ If you want to develop Mastodome, read the `DevNotes` file for additional depend
 ## New in this release (0.3)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
-* Setup now installs fixed version "known good" pip dependencies
-* Re-licensed project under MIT terms
-* Removed third party assets that were licensed under AGPL
+* Setup now installs fixed versions "known good" pip dependencies
+* Re-licenses project under MIT terms
+* Removes third party assets that were licensed under AGPL
 
 ### Known Issues & Limitations
 * This project is no longer in active development, so there may be bugs.
