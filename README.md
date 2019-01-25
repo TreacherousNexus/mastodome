@@ -70,7 +70,6 @@ See `CHANGELOG` for a full list of changes. The most notable features are:
 Yes! Mastodome is free software.
 * Mastodome itself is licensed under the MIT
 * All icon images are public domain and taken from Gnome's [Tango](https://commons.wikimedia.org/wiki/Tango_icons) iconset
-* The Mastodon logo and the mascot used on the login window are taken from Wikipedia and are therefore licensed under [Wikimedia Commons](https://commons.wikimedia.org/wiki/Commons:Licensing) terms
 * Custom artwork I created for Mastodome (i.e. the Mastodome icon and image in the About window) are the property of me (Bobby Moss) and shared under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 
 So, if you're someone who likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.
