@@ -12,11 +12,7 @@ html2text
 PyQt5
 keyring
 
-(This document is temporary. Will clean this up later)
-
 To run the application navigate to folder and run mastodome.py
 
 Use pyuic5 if you want to convert ui files to python: pyuic5 file.ui -o file.py
-
-
 
