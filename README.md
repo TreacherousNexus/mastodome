@@ -56,6 +56,7 @@ See `CHANGELOG` for a full list of changes. The most notable features are:
 
 * Setup now installs fixed version "known good" pip dependencies
 * Re-licensed project under MIT terms
+* Removed third party assets that were licensed under AGPL
 
 ### Known Issues & Limitations
 * This project is no longer in active development, so there may be bugs.
