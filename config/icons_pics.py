@@ -50,7 +50,7 @@ class Pics:
     def __init__(self):
         config = Config()
         path = os.curdir + config.GUI_IMG_FILE_LOC_PREFIX
-        self.loginLogoImg = path + "mastodon_logo.svg"
-        self.loginMascotImg = path + "mastodon_mascot.png"
+        self.loginLogoImg = path + "mastodome_logo.svg"
+        self.loginMascotImg = path + "mastodome_art.png"
         self.aboutMascoutImg = path + "mastodome_art.png"
         self.appLogoImg = path + "mastodome_logo.svg"

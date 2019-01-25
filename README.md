@@ -2,22 +2,36 @@
 A new Qt-based Mastodon client written in Python.
 
 ## Intro
-Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better. More specifically:
+Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better.
 
-* Ad-supported messages and bots don't clutter up your news feed
-* There's no "engagement algorithms" showing you messages out of order and out of context deliberately to make you angry
-* Moderation is more effective because there's more people doing it in the first place
-* You can switch servers (or run your own) if you don't like the way the admin runs things
-* It's harder to create a self-reinforcing bubble of unreality when the unfettered public stream is just a click away
+**This project is no longer in active development**. It has been permissively re-licensed under MIT terms. 
+
+If you want to use the Mastodome name please contact [Bobby Moss](https://bobstechsite.co.uk/about.html).
+
+## What is Mastodon?
+Mastodon is a microblogging social network that is "federated". This means that there is no one single website that hosts Mastodon; the site is distributed across hundreds of servers, and you can even host an instance yourself.
+
+This federated platform makes use of the [ActivityPub](https://en.wikipedia.org/wiki/ActivityPub) standard. That means Mastodon users can see content from other social networks and websites such as [Pleroma](https://pleroma.social/), [PeerTube](https://joinpeertube.org/en/) and [Pixelfed](https://pixelfed.social/) as though they have been posted on the same website.
+
+Here are some additional advantages Mastodon has over Twitter:
+* Ad-supported messages and bots do not clutter up your news feed
+* There are no "engagement algorithms" that display posts out of order and out of context deliberately to make you angry
+* Moderation is more effective because there are more people doing it in the first place
+* You can switch servers (or run your own) if you do not like the way your administrator runs things
+* It is much harder to create a self-reinforcing bubble of unreality because the unfettered public stream is just a click away
 * You have much more control over your own privacy, blocking and muting
-* It's also possible to hide off-topic and NSFW conversations behind "content warnings" to avoid alienating your usual followers
+* It is also possible to hide off-topic and NSFW posts behind "content warnings" to avoid alienating your followers
+* Those same "content warnings" and custom filters ensure you can avoid any online drama, politics or TV show spoilers until you want to read them
+* Angry people cannot watch for posts with specific keywords or hashtags with the sole intention of finding new users to harass or troll
 
-The terminology is a little different too. You "toot" a message, "boost" other peoples' toots to your followers and "favourite" messages you like.
-I'm convinced that in time, most people will see that Twitter doesn't have their best interests at heart and start to migrate across. Or at the very least, have an account on both systems.
+The terminology is also slightly different. You "toot" a message, "boost" other peoples' toots to your followers and "favourite" messages you like.
+I am convinced that in time, most people will see that Twitter does not have their best interests in mind and start to migrate across. Or at the very least, have an account on both systems.
 
 For more information about why Mastodon is a great alternative to Twitter, check out [this blog post](https://theoutline.com/post/2689/mastodon-makes-the-internet-feel-like-home-again) from [@srol@mellified.men](https://mellified.men/@srol).
 
 For instructions on how to create a profile on Mastodon, [this blog post](https://kevq.uk/getting-started-with-mastodon/) by [@kev@fosstodon.org](https://fosstodon.org/@kev) is a great place to start.
+
+You can also follow me (Bobby Moss) via [@bobstechsite@bobadon.rocks](https://bobadon.rocks/@bobstechsite).
 
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from gitlab using the following commands:
@@ -27,9 +41,8 @@ $ git clone https://gitlab.com/bobstechsite/mastodome.git
 You should now follow the setup steps for the application:
 ```bash
 $ sudo apt install python3 python3-pip
-$ pip3 install Mastodon.py validators html2text PyQt5 keyring
+$ sudo pip3 install -r mastodome/requirements.txt
 $ mkdir -p mastodome/config/.cache/
-$ chmod +x mastodome/mastodome.py
 ```
 
 Finally, run the program itself:
@@ -39,81 +52,34 @@ $ ./mastodome.py
 ```
 If you want to develop Mastodome, read the `DevNotes` file for additional dependencies and supporting tools.
 
-In future releases I will make the process of installing and running Mastodome much simpler, and less dependent on you launching the program from the correct folder!
-
-## New in this release (0.2)
+## New in this release (0.3)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
-* Creates toots with content warnings and different privacy levels
-* Displays content warnings and image alt text in the toot stream
-* Displays full content of Notifications
-* Remembers previous logins and provides a passwordless user switcher
-* Supports resizing the main window
-* Runs on Python 3 and Qt 5
+* Simplifies setup and installs "known good" versions of pip dependencies
+* Re-licenses project under MIT terms
+* Removes third party assets that were licensed under AGPL
 
 ### Known Issues & Limitations
-* This is still alpha stage software. You should expect to find bugs and missing functionality
+* This project is no longer in active development, so there may be bugs.
+* This is still alpha stage software. You should expect to find missing functionality.
 * 2FA is not supported. If you have enabled it for your account, you will need to disable it the first time you register the app, then re-enable it. You will have to do this if you ever use "log out..." instead of just exiting Mastodome
 * The GUI only permits toots up to 280 characters in size by default, but this can be changed in config
 
 ## FAQs
 ### Is Mastodome open source and/or free software?
 Yes! Mastodome is free software.
-* Mastodome itself is licensed under the GNU GPLv3
+* Mastodome itself is licensed under the MIT
 * All icon images are public domain and taken from Gnome's [Tango](https://commons.wikimedia.org/wiki/Tango_icons) iconset
-* The Mastodon logo and the mascot used on the login window are the property of the [Mastodon](https://github.com/tootsuite/mastodon) project and distributed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl.html)
+* The Mastodon logo and the mascot used on the login window are taken from Wikipedia and are therefore licensed under [Wikimedia Commons](https://commons.wikimedia.org/wiki/Commons:Licensing) terms
 * Custom artwork I created for Mastodome (i.e. the Mastodome icon and image in the About window) are the property of me (Bobby Moss) and shared under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 
 So, if you're someone who likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.
 
-### How can I contribute?
-You can help by...
-* Spreading the word about how awesome Mastodon is to people who don't use it yet
-* Recommending the Mastodome client to your followers on Mastodon
-* Writing blog posts about Mastodome
-* Contributing a translation file to the project
-* Reporting bugs via the Gitlab project or via Mastodon
-* Contributing code, tests and documentation
-* Doing anything else you think would be useful
+### If this project is no longer in active development, why is it still here?
+Because I am proud of the work I did on this!
 
-### Why didn't you write this in C++/Rust/Java/insert favourite language?
-There are a few reasons:
-* Not every language has a well-supported library for Mastodon, and I don't have time to write my own
-* This application is used by one user on one system, so milliseconds of latency won't matter
-* Building machine-compiled versions for each processor architecture and operating system seems a bit of a chore
+Also this project is a great showcase for what you can do with the PyQt and Mastodon.py libraries. I pushed the former to the limits of what it was capable of to implement the functionality I did, and as you inspect the code you will come to understand the compromises and trade-offs I had to make.
 
-There are also beneficial side-effects of using Python:
-* Most of the libraries I'm calling are just wrappers for machine-compiled components anyway
-* I enjoy developing things with Python, so that should keep me enthused about working on the project in my free time
-* There's a low barrier to entry for people to contribute (i.e. you don't need to setup a build toolchain, download an IDE or learn how to use version control first)
-* Once Mastodome is installed even non-developers can inspect what Mastodome is doing and make modifications on their own machine if they like
+The reason I stopped working on Mastodome is because performance on low-end systems was starting to become an issue, so a substantial rewrite is probably required to progress the project any further. I have other projects and obligations taking priority, so it is unlikely that this rewrite will ever happen.
 
-Those last two points are particularly important to me because I want to make this software program as accessible as possible to everyone. This is why Mastodome already supports translations and will be as user-configurable as possible. I also chose to stick with well-established libraries/frameworks/UI paradigms because they work across the widest range of PCs (of varying age) and existing disability-assistance tools.
-
-### Will Mastodome support cross-posting to multiple accounts?
-Mastodome already supports "fast switching" between user accounts. Cross-posting with a single toot will be supported in a future release.
-
-### Will Mastodome support cross-posting to Twitter and Facebook?
-Not in the immediate future, for the following reasons:
-* Both networks require me to have an account and register on their developer portal to use their closed APIs
-* The keys provided to access those closed APIs can be revoked at any time and without warning, and I'd get the blame
-* I don't want Mastodome to explicitly endorse the use of those networks due to their user-hostile behaviour and malicious use of non-free JavaScript
-
-If you disagree then you're welcome to fork Mastodome and add that functionality. But my intention is to support them through a plugin framework instead. The main benefits of this approach are:
-* Users will blame the plugin rather than the whole application if these services revoke API access
-* We can let people who want to use those networks register their own API keys (they do this for Mastodon anyway, so it doesn't seem unreasonable to me)
-
-### Does Mastodome support other federated web services?
-Supporting other platforms is a long way off, but it's something I've started thinking about.
-
-[GNU Social](https://www.gnu.org/software/social/), [Pleroma](https://pleroma.social/) & [Diaspora*](https://diasporafoundation.org/) are probably the most likely candidates as they're popular federated microblogging services with REST APIs I can use for Mastodome.
-
-### Will you support that other feature I just thought of?
-Maybe. If there are they'll all be 0.x (with the "x" corresponding to the month I'm going to be working on it) and the following are intended to be the "major" pre-release versions. This is subject to change.
-
-* 0.1: First proof of concept (released January 2018)
-* 0.4: All the features I'd consider to be "core functionality"
-* 0.7: Useful things like hashtags, lists & other things I notice are missing when I start using it full-time
-* 1.0: Stable release with additional installers for Windows and Mac
-
-Support for other federated services and a plug-in interface will likely be implemented after the 1.0 release.
+Python has no performance penalty when it is used as a wrapper for machine-compiled libraries, but I would need to keep extending the functionality of what is available so this would definitely become more of a problem! To make a compelling desktop client for Mastodon that is performant on all systems and of interest to end users, this really needs to be rewritten using C++ in Qt Creator, with libcurl used to make REST calls to the Mastodon API.

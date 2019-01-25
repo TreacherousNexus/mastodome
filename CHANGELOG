@@ -1,4 +1,11 @@
-Mastodome 0.2
+Mastodome 0.3 (2019-01-25)
+* Removes assets licensed under AGPL by Mastodon project
+* Re-licenses Mastodome under MIT terms
+* Updates README
+* Sets fixed versions for pip dependencies
+* Sets executable permissions for mastodome.py by default
+
+Mastodome 0.2 (2018-11-21)
 * Runs on Python 3 and Qt 5
 * Fixes broken keyboard shortcuts
 * Enables users to resize the main window
