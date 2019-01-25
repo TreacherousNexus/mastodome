@@ -43,7 +43,6 @@ You should now follow the setup steps for the application:
 $ sudo apt install python3 python3-pip
 $ sudo pip3 install -r mastodome/requirements.txt
 $ mkdir -p mastodome/config/.cache/
-$ chmod +x mastodome/mastodome.py
 ```
 
 Finally, run the program itself:
@@ -56,7 +55,7 @@ If you want to develop Mastodome, read the `DevNotes` file for additional depend
 ## New in this release (0.3)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
-* Setup now installs fixed "known good" versions of pip dependencies
+* Simplifies setup and installs "known good" versions of pip dependencies
 * Re-licenses project under MIT terms
 * Removes third party assets that were licensed under AGPL
 
