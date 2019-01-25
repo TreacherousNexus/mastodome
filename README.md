@@ -77,7 +77,7 @@ Yes! Mastodome is free software.
 So, if you're someone who likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.
 
 ### If this project is no longer in active development, why is it still here?
-Because I'm proud of the work I did on this!
+Because I am proud of the work I did on this!
 
 Also this project is a great showcase for what you can do with the PyQt and Mastodon.py libraries. I pushed the former to the limits of what it was capable of to implement the functionality I did, and as you inspect the code you will come to understand the compromises and trade-offs I had to make.
 
