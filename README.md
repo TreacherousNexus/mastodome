@@ -4,9 +4,9 @@ A new Qt-based Mastodon client written in Python.
 ## Intro
 Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better.
 
-**This project is no longer in active development**. It has been permissively re-licensed under MIT terms. 
+**This project is no longer in active development**. It has been permissively re-licensed under MIT terms.
 
-If you want to use the Mastodome name please contact [Bobby Moss](https://bobstechsite.co.uk/about.html).
+If you want to use the Mastodome name please contact [Bobby Moss](https://github.com/bobbymoss).
 
 ## What is Mastodon?
 Mastodon is a microblogging social network that is "federated". This means that there is no one single website that hosts Mastodon; the site is distributed across hundreds of servers, and you can even host an instance yourself.
@@ -31,12 +31,12 @@ For more information about why Mastodon is a great alternative to Twitter, check
 
 For instructions on how to create a profile on Mastodon, [this blog post](https://kevq.uk/getting-started-with-mastodon/) by [@kev@fosstodon.org](https://fosstodon.org/@kev) is a great place to start.
 
-You can also follow me (Bobby Moss) via [@bobstechsite@bobadon.rocks](https://bobadon.rocks/@bobstechsite).
+You can also follow me (CaptainFlarg) via [@CaptainFlarg@TenForward.social](https://tenforward.social/@captainflarg).
 
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from gitlab using the following commands:
 ```bash
-$ git clone https://gitlab.com/bobstechsite/mastodome.git
+$ git clone https://github.com/bobbymoss/mastodome.git
 ```
 You should now follow the setup steps for the application:
 ```bash
