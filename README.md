@@ -40,7 +40,7 @@ $ git clone https://github.com/bobbymoss/mastodome.git
 ```
 You should now follow the setup steps for the application:
 ```bash
-$ sudo apt install python3 python3-pip
+$ sudo apt install python3 ipython3 python3-pip gnome-keyring libgl1-mesa-glx
 $ sudo pip3 install -r mastodome/requirements.txt
 $ mkdir -p mastodome/config/.cache/
 ```
@@ -52,7 +52,7 @@ $ ./mastodome.py
 ```
 If you want to develop Mastodome, read the `DevNotes` file for additional dependencies and supporting tools.
 
-## New in this release (0.3)
+## New in this release (0.3.1)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
 * Simplifies setup and installs "known good" versions of pip dependencies

@@ -1,3 +1,9 @@
+Mastodome 0.3.1 (2019-04-01)
+* Removes legacy license notices that no longer apply
+* Removes CoC file that no longer applies (as project not active)
+* Updates links in README.md
+* Fixes installation instructions in README.md
+
 Mastodome 0.3 (2019-01-25)
 * Removes assets licensed under AGPL by Mastodon project
 * Re-licenses Mastodome under MIT terms
