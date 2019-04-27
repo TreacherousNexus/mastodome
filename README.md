@@ -31,6 +31,8 @@ For more information about why Mastodon is a great alternative to Twitter, check
 
 For instructions on how to create a profile on Mastodon, [this blog post](https://kevq.uk/getting-started-with-mastodon/) by [@kev@fosstodon.org](https://fosstodon.org/@kev) is a great place to start.
 
+You can follow me via [@TreacherousNexus@tech.lgbt](https://tech.lgbt/@TreacherousNexus).
+
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from gitlab using the following commands:
 ```bash
