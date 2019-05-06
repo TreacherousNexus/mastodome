@@ -6,7 +6,7 @@ Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/M
 
 **This project is no longer in active development**. I am currently evaluating its future direction as I am running up against the limits of what I can do with PyQt while ensuring the app performs well on older systems. It has been permissively re-licensed under MIT terms.
 
-If you want to use the Mastodome name please contact [Bobby Moss](https://github.com/bobbyjmoss).
+If you want to use the Mastodome name please contact [Bobby Moss](https://github.com/TreacherousNexus).
 
 ## What is Mastodon?
 Mastodon is a microblogging social network that is "federated". This means that there is no one single website that hosts Mastodon; the site is distributed across hundreds of servers, and you can even host an instance yourself.
@@ -36,7 +36,7 @@ You can follow me via [@TreacherousNexus@tech.lgbt](https://tech.lgbt/@Treachero
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from gitlab using the following commands:
 ```bash
-$ git clone https://github.com/bobbyjmoss/mastodome.git
+$ git clone https://github.com/TreacherousNexus/mastodome.git
 ```
 You should now follow the setup steps for the application:
 ```bash
