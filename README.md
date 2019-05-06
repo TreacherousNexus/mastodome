@@ -74,11 +74,9 @@ Yes! Mastodome is free software.
 
 So, if you're someone who likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.
 
-### If this project is no longer in active development, why is it still here?
-Because I am proud of the work I did on this!
+### Why is development currently paused?
+I am trying to create "desktop-style" functionality that mirrors the experience through the browser, but a lot of things that are easy to achieve with JavaScript are hard to achieve with PyQt. On top of that, Python is very fast when it's a wrapper for machine-compiled libraries but it becomes progressively slower the more you have to do in Python. So the more work-arounds I have to produce for PyQt and Mastodon.py (the library I use to do the REST calls) the slower performance becomes.
 
-Also this project is a great showcase for what you can do with the PyQt and Mastodon.py libraries. I pushed the former to the limits of what it was capable of to implement the functionality I did, and as you inspect the code you will come to understand the compromises and trade-offs I had to make.
+In principle this isn't the worst problem, however the people most likely to benefit from a desktop client are those with slow internet connections, non-standard browsers and older hardware. If this application runs badly for those people, then it defeats the purpose.
 
-The reason I stopped working on Mastodome is because performance on low-end systems was starting to become an issue, so a substantial rewrite is probably required to progress the project any further. I have other projects and obligations taking priority, so it is unlikely that this rewrite will ever happen.
-
-Python has no performance penalty when it is used as a wrapper for machine-compiled libraries, but I would need to keep extending the functionality of what is available so this would definitely become more of a problem! To make a compelling desktop client for Mastodon that is performant on all systems and of interest to end users, this really needs to be rewritten using C++ in Qt Creator, with libcurl used to make REST calls to the Mastodon API.
+My current plan is to do a rewrite in either C++, Rust or a combination of the two. This enables me to make full use of the Qt library, write a common REST client of my own that I could use with more than one service and should run a lot better on a wide variety of hardware. This however requires a lot of planning, and a decision on whether it needs a new git repository and/or license. I will update on what I decide some time in 2019.
