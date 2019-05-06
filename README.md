@@ -75,7 +75,7 @@ Yes! Mastodome is free software.
 So, if you're someone who likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.
 
 ### Why is development currently paused?
-I am trying to create "desktop-style" functionality that mirrors the experience through the browser, but a lot of things that are easy to achieve with JavaScript are hard to achieve with PyQt. On top of that, Python is very fast when it's a wrapper for machine-compiled libraries but it becomes progressively slower the more you have to do in Python. So the more work-arounds I have to produce for PyQt and Mastodon.py (the library I use to do the REST calls) the slower performance becomes.
+I am trying to create "desktop-style" functionality that mirrors the experience Mastodon users enjoy through the browser, but a lot of things that are easy to achieve with JavaScript are hard to achieve with PyQt. On top of that, Python is very fast when it's a wrapper for machine-compiled libraries but it becomes progressively slower the more you have to do in Python. So the more work-arounds I have to produce for PyQt and Mastodon.py (the library I use to do the REST calls) the slower performance becomes.
 
 In principle this isn't the worst problem, however the people most likely to benefit from a desktop client are those with slow internet connections, non-standard browsers and older hardware. If this application runs badly for those people, then it defeats the purpose.
 
