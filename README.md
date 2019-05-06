@@ -4,7 +4,7 @@ A new Qt-based Mastodon client written in Python.
 ## Intro
 Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better.
 
-**Please note**: I am currently evaluating the future direction of this project as I am running up against the limits of what I can do with PyQt, and hitting performance problems on older systems.
+**Please note**: I am currently evaluating the future direction of this project as I am running up against the limits of what I can do with PyQt, and there may be some performance problems on older systems.
 
 This code is under an MIT license. If you want to use the Mastodome name please contact [Bobby Moss](https://github.com/TreacherousNexus).
 
