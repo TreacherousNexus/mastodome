@@ -10,6 +10,6 @@ class Config:
         self.GUI_IMG_AVATAR_CACHE_PREFIX = "/config/.cache/"
         self.GUI_DEFAULTS_FILE_LOC_PREFIX = "/config/.defaults/"
         self.GUI_TOOT_MAX_SIZE_CHARS = 280
-        self.APP_NAME = "Mastodome"
-        self.APP_VERSION = "0.3.2"
-        self.APP_WEBSITE = "https://github.com/bobbymoss/mastodome"
+        self.APP_NAME = "Mastodome Legacy Edition"
+        self.APP_VERSION = "0.3.3"
+        self.APP_WEBSITE = "https://github.com/TreacherousNexus/mastodome-legacy"
