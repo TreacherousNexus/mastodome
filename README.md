@@ -79,4 +79,4 @@ I am trying to create "desktop-style" functionality that mirrors the experience 
 
 In principle this isn't the worst problem, however the people most likely to benefit from a desktop client are those with slow internet connections, non-standard browsers and older hardware. If this application runs badly for those people, then it defeats the purpose.
 
-My new plan is to do a rewrite in a new repository. Follow me on Mastodon to keep up-to-date with the latest changes.
+**THIS RELEASE IS NO LONGER SUPPORTED** Ensure you track the latest code on https://github.com/TreacherousNexus/mastodome.git
