@@ -1,4 +1,4 @@
-# Mastodome
+# Mastodome Legacy Edition
 A new Qt-based Mastodon client written in Python.
 
 ## Intro
@@ -36,7 +36,7 @@ You can follow me via [@TreacherousNexus@tech.lgbt](https://tech.lgbt/@Treachero
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from gitlab using the following commands:
 ```bash
-$ git clone https://github.com/TreacherousNexus/mastodome.git
+$ git clone https://github.com/TreacherousNexus/mastodome-legacy.git
 ```
 You should now follow the setup steps for the application:
 ```bash
@@ -52,7 +52,7 @@ $ ./mastodome.py
 ```
 If you want to develop Mastodome, read the `DevNotes` file for additional dependencies and supporting tools.
 
-## New in this release (0.3.2)
+## New in this release (0.3.3)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
 * Simplifies setup and installs "known good" versions of pip dependencies
