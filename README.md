@@ -2,11 +2,9 @@
 A new Qt-based Mastodon client for Linux, written in Python.
 
 ## Intro
-Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better.
+Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better. It also works with similar "forks" of that project too such as [Florence](https://github.com/florence-social).
 
-**THIS RELEASE IS NO LONGER SUPPORTED** Ensure you track the latest code on https://github.com/TreacherousNexus/mastodome.git
-
-This legacy code is under an MIT license. If you want to use the Mastodome name please contact [Bobby Moss](https://github.com/TreacherousNexus).
+This code is provided under an MIT license. If you want to use the Mastodome name please contact [Bobby Moss](https://github.com/TreacherousNexus).
 
 ## What is Mastodon?
 Mastodon is a microblogging social network that is "federated". This means that there is no one single website that hosts Mastodon; the site is distributed across hundreds of servers, and you can even host an instance yourself.
@@ -31,7 +29,7 @@ For more information about why Mastodon is a great alternative to Twitter, check
 
 For instructions on how to create a profile on Mastodon, [this blog post](https://kevq.uk/getting-started-with-mastodon/) by [@kev@fosstodon.org](https://fosstodon.org/@kev) is a great place to start.
 
-You can follow me via [@TreacherousNexus@tech.lgbt](https://tech.lgbt/@TreacherousNexus).
+You can follow me via [@bob@bobadon.co.uk](https://bobadon.co.uk/@bob).
 
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from gitlab using the following commands:
@@ -52,12 +50,13 @@ $ ./mastodome.py
 ```
 If you want to develop Mastodome, read the `DevNotes` file for additional dependencies and supporting tools.
 
-## New in this release (0.3.3)
+## New in this release (0.3.4)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
 * Simplifies setup and installs "known good" versions of pip dependencies
 * Re-licenses project under MIT terms
 * Removes third party assets that were licensed under AGPL
+* Will no longer sign in to sites with "gab." in the URL
 
 ### Known Issues & Limitations
 * This project is no longer in active development, so there may be bugs.
@@ -72,11 +71,4 @@ Yes! Mastodome is free software.
 * All icon images are public domain and taken from Gnome's [Tango](https://commons.wikimedia.org/wiki/Tango_icons) iconset
 * Custom artwork I created for Mastodome (i.e. the Mastodome icon and image in the About window) are the property of me (Bobby Moss) and shared under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 
-So, if you're someone who likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.
-
-### Why is development currently paused?
-I am trying to create "desktop-style" functionality that mirrors the experience Mastodon users enjoy through the browser, but a lot of things that are easy to achieve with JavaScript are hard to achieve with PyQt. On top of that, Python is very fast when it's a wrapper for machine-compiled libraries but it becomes progressively slower the more you have to do in Python. So the more work-arounds I have to produce for PyQt and Mastodon.py (the library I use to do the REST calls) the slower performance becomes.
-
-In principle this isn't the worst problem, however the people most likely to benefit from a desktop client are those with slow internet connections, non-standard browsers and older hardware. If this application runs badly for those people, then it defeats the purpose.
-
-**THIS RELEASE IS NO LONGER SUPPORTED** Ensure you track the latest code on https://github.com/TreacherousNexus/mastodome.git
+So, if you are someone that likes to use fully-free systems like [Trisquel](https://trisquel.info/) or [Parabola](https://www.parabola.nu/) you will be glad to hear that this application is safe for you to use.

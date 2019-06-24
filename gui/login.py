@@ -121,6 +121,11 @@ class ui_login_dialog(object):
             self.latest_exception = ValueError("Not a valid server URL")
             raise ValueError
 
+        if "gab." in server_url:
+            print('Mastodome does not support this social network.')
+            self.latest_exception = ValueError("Mastodome does not support this social network")
+            raise ValueError
+
         if not validators.email(user_name):
             print('Not a valid user name')
             self.latest_exception = ValueError("Not a valid user name")

@@ -1,3 +1,6 @@
+Mastodome 0.3.4 (2019-06-24)
+* Blocks sign-ins from server URLs containing "gab."
+
 Mastodome 0.3.3 (2019-05-19)
 * Updates project name and status in README.md
 
