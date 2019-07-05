@@ -25,9 +25,7 @@ Here are some additional advantages Mastodon has over Twitter:
 The terminology is also slightly different. You "toot" a message, "boost" other peoples' toots to your followers and "favourite" messages you like.
 I am convinced that in time, most people will see that Twitter does not have their best interests in mind and start to migrate across. Or at the very least, have an account on both systems.
 
-For more information about why Mastodon is a great alternative to Twitter, check out [this blog post](https://theoutline.com/post/2689/mastodon-makes-the-internet-feel-like-home-again) from [@srol@mellified.men](https://mellified.men/@srol).
-
-For instructions on how to create a profile on Mastodon, [this blog post](https://kevq.uk/getting-started-with-mastodon/) by [@kev@fosstodon.org](https://fosstodon.org/@kev) is a great place to start.
+For more information about why Mastodon is a great alternative to Twitter, check out [this blog post](https://theoutline.com/post/2689/mastodon-makes-the-internet-feel-like-home-again) from [@srol@mellified.men](https://mellified.men/@srol), or [this PeerTube video](https://peertube.social/videos/watch/58cba7a7-85ef-4a99-9e11-0d0896e5d50d) from [@shonalika@deadinsi.de](https://deadinsi.de/@shonalika).
 
 You can follow me via [@bob@bobadon.co.uk](https://bobadon.co.uk/@bob).
 
