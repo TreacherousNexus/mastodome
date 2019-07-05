@@ -48,7 +48,7 @@ $ ./mastodome.py
 ```
 If you want to develop Mastodome, read the `DevNotes` file for additional dependencies and supporting tools.
 
-## New in this release (0.3.4)
+## New in this release (0.3.5)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
 * Simplifies setup and installs "known good" versions of pip dependencies
