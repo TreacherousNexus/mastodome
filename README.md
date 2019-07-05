@@ -55,6 +55,7 @@ See `CHANGELOG` for a full list of changes. The most notable features are:
 * Re-licenses project under MIT terms
 * Removes third party assets that were licensed under AGPL
 * Will no longer sign in to sites with "gab." in the URL
+* Updated helpful links in `README.md`
 
 ### Known Issues & Limitations
 * This project is no longer in active development, so there may be bugs.
