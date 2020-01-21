@@ -4,7 +4,7 @@ A new Qt-based Mastodon client for Linux, written in Python.
 ## Intro
 Mastodome is a new desktop client for [Mastodon](https://en.wikipedia.org/wiki/Mastodon_(software)), a federated social network that takes all the best elements of Twitter and makes them better. It also works with similar "forks" of that project too such as [Florence](https://github.com/florence-social).
 
-This code is provided under an MIT license. If you want to use the Mastodome name please contact [Bobby Moss](https://github.com/TreacherousNexus).
+This code is provided under an MIT license. If you want to use the Mastodome name please contact [Bobby Moss](https://github.com/TrechNex).
 
 ## What is Mastodon?
 Mastodon is a microblogging social network that is "federated". This means that there is no one single website that hosts Mastodon; the site is distributed across hundreds of servers, and you can even host an instance yourself.
@@ -27,7 +27,7 @@ I am convinced that in time, most people will see that Twitter does not have the
 
 For more information about why Mastodon is a great alternative to Twitter, check out [this blog post](https://theoutline.com/post/2689/mastodon-makes-the-internet-feel-like-home-again) from [@srol@mellified.men](https://mellified.men/@srol), or [this PeerTube video](https://peertube.social/videos/watch/58cba7a7-85ef-4a99-9e11-0d0896e5d50d) from [@shonalika@deadinsi.de](https://deadinsi.de/@shonalika).
 
-You can follow me via [@bob@bobadon.co.uk](https://bobadon.co.uk/@bob).
+You can follow me via [@trechnex@sdf.org](https://mastodon.sdf.org/@trechnex).
 
 ## Getting started with Mastodome
 To pull down the latest stable code, simply pull from gitlab using the following commands:
