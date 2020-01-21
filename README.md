@@ -48,14 +48,10 @@ $ ./mastodome.py
 ```
 If you want to develop Mastodome, read the `DevNotes` file for additional dependencies and supporting tools.
 
-## New in this release (0.3.5)
+## New in this release (0.3.6)
 See `CHANGELOG` for a full list of changes. The most notable features are:
 
-* Simplifies setup and installs "known good" versions of pip dependencies
-* Re-licenses project under MIT terms
-* Removes third party assets that were licensed under AGPL
-* Will no longer sign in to sites with "gab." in the URL
-* Updated helpful links in `README.md`
+* Fixes a security vulnerability in the `validators` Python dependency
 
 ### Known Issues & Limitations
 * This project is no longer in active development, so there may be bugs.
