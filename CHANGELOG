@@ -1,4 +1,7 @@
-Mastodom 0.3.5 (2019-07-05)
+Mastodome 0.3.6 (2020-01-21)
+* Fixed a security vulnerability in the validators Python dependency
+
+Mastodome 0.3.5 (2019-07-05)
 * Updated links to helpful resources in README.md
 
 Mastodome 0.3.4 (2019-06-24)
